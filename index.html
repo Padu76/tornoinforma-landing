@@ -33,9 +33,12 @@
       background-size: cover;
       background-attachment: fixed;
       color: white;
-      padding: 120px 0 140px;
+      padding: 80px 0 100px;
       position: relative;
       text-align: center;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
     }
 
     .hero-badge {
@@ -100,6 +103,43 @@
     .cta-primary:hover {
       transform: translateY(-3px);
       box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+
+    /* HERO MOTIVATIONAL */
+    .hero-motivational {
+      height: 500px;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
+                  url('https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=1920&h=800&fit=crop') center center;
+      background-size: cover;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 80px;
+    }
+
+    .motivational-overlay {
+      text-align: center;
+      color: white;
+      padding: 40px;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(5px);
+      border-radius: 20px;
+    }
+
+    .motivational-overlay h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+    }
+
+    .motivational-overlay p {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ff6b00;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
     }
 
     /* APP SHOWCASE */
@@ -736,6 +776,14 @@
     </div>
   </header>
 
+  <!-- HERO MOTIVATIONAL -->
+  <section class="hero-motivational">
+    <div class="motivational-overlay">
+      <h2>Il Tuo Personal Trainer, Ovunque Tu Sia</h2>
+      <p>Trasforma il tuo corpo senza limiti di spazio e tempo</p>
+    </div>
+  </section>
+
   <!-- APP SHOWCASE -->
   <section class="app-showcase">
     <div class="container">
@@ -784,7 +832,7 @@
           <div class="step-description">Tutti i tuoi esercizi con video tutorial sempre disponibili su TornoInForma</div>
         </div>
         <div class="step-card">
-          <img src="https://images.unsplash.com/photo-1609899317026-0f4fb2101ed5?w=400&h=300&fit=crop" alt="Supporto personal trainer WhatsApp" class="step-image">
+          <img src="https://images.unsplash.com/photo-1577221084712-45b0445d2b00?w=400&h=300&fit=crop" alt="Supporto personal trainer WhatsApp" class="step-image">
           <div class="step-number">4</div>
           <div class="step-title">Supporto Costante</div>
           <div class="step-description">Chat diretta per domande, aggiornamenti periodici e monitoraggio progressi</div>
