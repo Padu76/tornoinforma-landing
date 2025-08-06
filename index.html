@@ -13,6 +13,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
       line-height: 1.6;
@@ -33,10 +37,10 @@
       background-size: cover;
       background-attachment: fixed;
       color: white;
-      padding: 80px 0 100px;
+      padding: 60px 0 60px;
       position: relative;
       text-align: center;
-      min-height: 70vh;
+      min-height: 50vh;
       display: flex;
       align-items: center;
     }
@@ -361,13 +365,16 @@
 
     .benefit-title {
       font-size: 1.3rem;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .benefit-text {
-      opacity: 0.95;
+      color: rgba(0,0,0,0.85);
       line-height: 1.6;
+      font-weight: 500;
     }
 
     /* MOTIVATIONAL BANNER */
@@ -405,29 +412,29 @@
 
     /* PRICING */
     .pricing {
-      padding: 100px 0;
+      padding: 80px 0;
       background: #f8f9fa;
     }
 
     .pricing h2 {
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       color: #333;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       font-weight: 800;
     }
 
     .pricing-subtitle {
       text-align: center;
       color: #666;
-      font-size: 1.2rem;
-      margin-bottom: 60px;
+      font-size: 1.1rem;
+      margin-bottom: 50px;
     }
 
     .pricing-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
       max-width: 1000px;
       margin: 0 auto;
     }
@@ -435,7 +442,7 @@
     .pricing-card {
       background: white;
       border-radius: 20px;
-      padding: 40px 30px;
+      padding: 35px 25px;
       text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
       transition: all 0.3s ease;
@@ -471,38 +478,40 @@
     }
 
     .plan-name {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 800;
       color: #333;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .plan-duration {
       color: #999;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
+      font-size: 0.95rem;
     }
 
     .plan-price {
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: 800;
       color: #ff6b00;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
     .plan-price sup {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
     }
 
     .plan-features {
       list-style: none;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
     .plan-features li {
-      padding: 12px 0;
+      padding: 10px 0;
       color: #666;
       position: relative;
       padding-left: 25px;
+      font-size: 0.95rem;
     }
 
     .plan-features li:before {
@@ -770,7 +779,7 @@
       <span class="hero-badge">🚀 TRASFORMA IL TUO CORPO ONLINE</span>
       <h1>Il Tuo Personal Trainer,<br>Ovunque Tu Sia</h1>
       <p>Allenati con schede personalizzate, web app dedicata e supporto costante. Niente più scuse, solo risultati.</p>
-      <a href="https://wa.me/3478881515?text=Ciao!%20Vorrei%20informazioni%20sul%20coaching%20online%20TornoInForma" class="cta-primary">
+      <a href="#how-it-works" class="cta-primary">
         💪 Inizia la Tua Trasformazione
       </a>
     </div>
@@ -809,12 +818,12 @@
   </section>
 
   <!-- HOW IT WORKS -->
-  <section class="how-it-works">
+  <section class="how-it-works" id="how-it-works">
     <div class="container">
       <h2>Come Iniziare il Tuo Percorso</h2>
       <div class="steps-grid">
         <div class="step-card">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=300&fit=crop" alt="Analisi iniziale personal trainer online" class="step-image">
+          <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400&h=300&fit=crop" alt="Videocall analisi iniziale personal trainer online" class="step-image">
           <div class="step-number">1</div>
           <div class="step-title">Analisi Iniziale</div>
           <div class="step-description">Videocall conoscitiva per capire i tuoi obiettivi e creare il piano perfetto per te</div>
@@ -832,7 +841,7 @@
           <div class="step-description">Tutti i tuoi esercizi con video tutorial sempre disponibili su TornoInForma</div>
         </div>
         <div class="step-card">
-          <img src="https://images.unsplash.com/photo-1577221084712-45b0445d2b00?w=400&h=300&fit=crop" alt="Supporto personal trainer WhatsApp" class="step-image">
+          <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?w=400&h=300&fit=crop" alt="Chat WhatsApp supporto personal trainer" class="step-image">
           <div class="step-number">4</div>
           <div class="step-title">Supporto Costante</div>
           <div class="step-description">Chat diretta per domande, aggiornamenti periodici e monitoraggio progressi</div>
@@ -905,7 +914,7 @@
             <li>Video tutorial esercizi</li>
             <li>Supporto email</li>
           </ul>
-          <a href="https://wa.me/3478881515?text=Vorrei%20info%20sul%20piano%20BASE%201%20mese" class="plan-cta">Inizia Ora</a>
+          <a href="https://wa.me/3478881515?text=Vorrei%20info%20sul%20piano%20BASE%201%20mese" class="plan-cta">Contattami</a>
         </div>
 
         <div class="pricing-card featured">
@@ -919,7 +928,7 @@
             <li>Check mensile progressi</li>
             <li>Consigli nutrizionali base</li>
           </ul>
-          <a href="https://wa.me/3478881515?text=Vorrei%20info%20sul%20piano%20STANDARD%203%20mesi" class="plan-cta">Inizia Ora</a>
+          <a href="https://wa.me/3478881515?text=Vorrei%20info%20sul%20piano%20STANDARD%203%20mesi" class="plan-cta">Contattami</a>
         </div>
 
         <div class="pricing-card">
@@ -934,7 +943,7 @@
             <li>Piano nutrizionale completo</li>
             <li>Accesso contenuti esclusivi</li>
           </ul>
-          <a href="https://wa.me/3478881515?text=Vorrei%20info%20sul%20piano%20PREMIUM%206%20mesi" class="plan-cta">Inizia Ora</a>
+          <a href="https://wa.me/3478881515?text=Vorrei%20info%20sul%20piano%20PREMIUM%206%20mesi" class="plan-cta">Contattami</a>
         </div>
 
       </div>
