@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 50px 0;
+}
+
+h1, h2 {
+  color: #f97316; /* Arancione */
+}
+
+.hero {
+  background: #111 url('../public/hero.jpg') center/cover no-repeat;
+  padding: 100px 20px;
+}
+
+.cta {
+  display: inline-block;
+  background: #f97316;
+  color: #fff;
+  padding: 15px 30px;
+  margin-top: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.cta:hover {
+  background: #fff;
+  color: #f97316;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #444;
+}
+
+th, td {
+  padding: 15px;
+  text-align: center;
+}
