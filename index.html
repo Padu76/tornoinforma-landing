@@ -37,7 +37,7 @@
       background-size: cover;
       background-attachment: fixed;
       color: white;
-      padding: 60px 0 60px;
+      padding: 60px 0;
       position: relative;
       text-align: center;
       min-height: 50vh;
@@ -56,21 +56,23 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 800;
       margin-bottom: 20px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
       animation: fadeInUp 0.8s ease;
+      line-height: 1.2;
     }
 
     .hero p {
-      font-size: 1.3rem;
+      font-size: clamp(1rem, 3vw, 1.3rem);
       margin-bottom: 40px;
       opacity: 0.95;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
       animation: fadeInUp 1s ease;
+      padding: 0 10px;
     }
 
     .cta-primary {
@@ -111,7 +113,7 @@
 
     /* HERO MOTIVATIONAL */
     .hero-motivational {
-      height: 500px;
+      height: 400px;
       background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
                   url('https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=1920&h=800&fit=crop') center center;
       background-size: cover;
@@ -120,27 +122,30 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      margin-bottom: 80px;
+      margin-bottom: 60px;
+      padding: 20px;
     }
 
     .motivational-overlay {
       text-align: center;
       color: white;
-      padding: 40px;
+      padding: 30px 20px;
       background: rgba(0,0,0,0.3);
       backdrop-filter: blur(5px);
       border-radius: 20px;
+      max-width: 90%;
     }
 
     .motivational-overlay h2 {
-      font-size: 3rem;
+      font-size: clamp(1.8rem, 6vw, 3rem);
       font-weight: 800;
       margin-bottom: 20px;
       text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+      line-height: 1.2;
     }
 
     .motivational-overlay p {
-      font-size: 1.5rem;
+      font-size: clamp(1rem, 3vw, 1.5rem);
       font-weight: 600;
       color: #ff6b00;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
@@ -163,15 +168,17 @@
 
     .app-content h2 {
       color: #ff6b00;
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       margin-bottom: 20px;
       font-weight: 800;
+      line-height: 1.2;
     }
 
     .app-content p {
-      font-size: 1.1rem;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
       color: rgba(255,255,255,0.85);
       margin-bottom: 30px;
+      line-height: 1.6;
     }
 
     .app-download {
@@ -223,16 +230,18 @@
 
     /* HOW IT WORKS */
     .how-it-works {
-      padding: 100px 0;
+      padding: 80px 0;
       background: white;
     }
 
     .how-it-works h2 {
       text-align: center;
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       color: #333;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
       font-weight: 800;
+      line-height: 1.2;
+      padding: 0 10px;
     }
 
     .steps-grid {
@@ -304,7 +313,7 @@
 
     /* BENEFITS */
     .benefits {
-      padding: 80px 0;
+      padding: 60px 0;
       background: linear-gradient(135deg, rgba(255,107,0,0.95) 0%, rgba(255,152,0,0.92) 100%),
                   url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&h=1080&fit=crop') center center;
       background-size: cover;
@@ -327,10 +336,12 @@
 
     .benefits h2 {
       text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 50px;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 40px;
       font-weight: 800;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      line-height: 1.2;
+      padding: 0 10px;
     }
 
     .benefits-grid {
@@ -377,7 +388,7 @@
 
     /* MOTIVATIONAL BANNER */
     .motivational-banner {
-      height: 400px;
+      height: 350px;
       background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), 
                   url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=1920&h=600&fit=crop') center center;
       background-size: cover;
@@ -386,23 +397,26 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      margin: 100px 0;
+      margin: 80px 0;
+      padding: 20px;
     }
 
     .banner-content {
       text-align: center;
       color: white;
+      padding: 0 20px;
     }
 
     .banner-content h2 {
-      font-size: 3rem;
+      font-size: clamp(1.8rem, 6vw, 3rem);
       font-weight: 800;
       margin-bottom: 20px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      line-height: 1.2;
     }
 
     .banner-content p {
-      font-size: 1.5rem;
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
       font-weight: 600;
       color: #ff6b00;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
@@ -416,17 +430,19 @@
 
     .pricing h2 {
       text-align: center;
-      font-size: 2rem;
+      font-size: clamp(1.8rem, 4vw, 2rem);
       color: #333;
       margin-bottom: 12px;
       font-weight: 800;
+      padding: 0 10px;
     }
 
     .pricing-subtitle {
       text-align: center;
       color: #666;
-      font-size: 1rem;
+      font-size: clamp(0.9rem, 2vw, 1rem);
       margin-bottom: 40px;
+      padding: 0 20px;
     }
 
     .pricing-cards {
@@ -510,6 +526,7 @@
       position: relative;
       padding-left: 22px;
       font-size: 0.9rem;
+      text-align: left;
     }
 
     .plan-features li:before {
@@ -540,27 +557,28 @@
 
     /* TESTIMONIALS */
     .testimonials {
-      padding: 100px 0;
+      padding: 80px 0;
       background: white;
     }
 
     .testimonials h2 {
       text-align: center;
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       color: #333;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
       font-weight: 800;
+      padding: 0 10px;
     }
 
     .testimonials-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 40px;
     }
 
     .testimonial-card {
       background: #f8f9fa;
-      padding: 40px;
+      padding: 30px;
       border-radius: 20px;
       position: relative;
     }
@@ -577,7 +595,7 @@
     }
 
     .testimonial-text {
-      font-size: 1.1rem;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
       line-height: 1.8;
       color: #666;
       margin-bottom: 30px;
@@ -625,7 +643,7 @@
 
     /* CTA SECTION */
     .cta-section {
-      padding: 120px 0;
+      padding: 80px 0;
       background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
       color: white;
       text-align: center;
@@ -647,16 +665,18 @@
     .cta-content {
       position: relative;
       z-index: 1;
+      padding: 0 20px;
     }
 
     .cta-section h2 {
-      font-size: 3rem;
+      font-size: clamp(1.8rem, 5vw, 3rem);
       margin-bottom: 20px;
       font-weight: 800;
+      line-height: 1.2;
     }
 
     .cta-section p {
-      font-size: 1.3rem;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
       margin-bottom: 40px;
       opacity: 0.9;
       max-width: 600px;
@@ -677,11 +697,11 @@
       gap: 10px;
       background: #25D366;
       color: white;
-      padding: 18px 40px;
+      padding: 15px 30px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
       transition: all 0.3s ease;
       box-shadow: 0 10px 30px rgba(37,211,102,0.3);
     }
@@ -697,12 +717,12 @@
       gap: 10px;
       background: transparent;
       color: white;
-      padding: 18px 40px;
+      padding: 15px 30px;
       border: 2px solid white;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
       transition: all 0.3s ease;
     }
 
@@ -716,13 +736,18 @@
     footer {
       background: #1a1a1a;
       color: #999;
-      padding: 40px 0;
+      padding: 40px 20px;
       text-align: center;
     }
 
     footer a {
       color: #ff6b00;
       text-decoration: none;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+      font-size: clamp(0.85rem, 2vw, 1rem);
     }
 
     /* ANIMATIONS */
@@ -737,23 +762,113 @@
       }
     }
 
-    /* RESPONSIVE */
+    /* RESPONSIVE MOBILE */
     @media (max-width: 768px) {
+      .hero {
+        padding: 40px 0;
+        min-height: 60vh;
+      }
+
+      .hero-badge {
+        font-size: 12px;
+        padding: 6px 15px;
+      }
+
+      .cta-primary {
+        padding: 15px 30px;
+        font-size: 1rem;
+      }
+
+      .hero-motivational {
+        height: 350px;
+        margin-bottom: 40px;
+      }
+
+      .app-showcase {
+        padding: 40px 0;
+      }
+
       .app-showcase .container {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 40px;
+      }
+
+      .app-screenshots {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .app-screenshot {
+        width: 150px;
+        height: 300px;
+      }
+
+      .how-it-works {
+        padding: 60px 0;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .step-card {
+        padding: 25px 20px;
+      }
+
+      .benefits {
+        padding: 50px 0;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .benefit-item {
+        padding: 20px;
+      }
+
+      .benefit-title {
+        font-size: 1rem;
+      }
+
+      .motivational-banner {
+        height: 300px;
+        margin: 60px 0;
+      }
+
+      .pricing {
+        padding: 50px 0;
       }
 
       .pricing-cards {
         grid-template-columns: 1fr;
+        padding: 0 10px;
       }
 
       .pricing-card.featured {
         transform: scale(1);
       }
 
+      .testimonials {
+        padding: 60px 0;
+      }
+
       .testimonials-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 10px;
+      }
+
+      .testimonial-card {
+        padding: 25px 20px;
+      }
+
+      .cta-section {
+        padding: 60px 0;
       }
 
       .cta-buttons {
@@ -763,9 +878,110 @@
 
       .cta-whatsapp,
       .cta-secondary {
-        width: 100%;
+        width: 90%;
         max-width: 300px;
         justify-content: center;
+      }
+    }
+
+    /* EXTRA SMALL DEVICES */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 15px;
+      }
+
+      .hero {
+        padding: 30px 0;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+
+      .hero-motivational {
+        height: 300px;
+      }
+
+      .motivational-overlay h2 {
+        font-size: 1.5rem;
+      }
+
+      .motivational-overlay p {
+        font-size: 1rem;
+      }
+
+      .app-screenshot {
+        width: 120px;
+        height: 240px;
+      }
+
+      .screenshot-label {
+        font-size: 0.85rem;
+      }
+
+      .step-number {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.2rem;
+      }
+
+      .step-title {
+        font-size: 1.1rem;
+      }
+
+      .step-description {
+        font-size: 0.9rem;
+      }
+
+      .benefit-icon {
+        font-size: 1.8rem;
+      }
+
+      .benefit-text {
+        font-size: 0.85rem;
+      }
+
+      .banner-content h2 {
+        font-size: 1.5rem;
+      }
+
+      .banner-content p {
+        font-size: 1rem;
+      }
+
+      .plan-price {
+        font-size: 1.8rem;
+      }
+
+      .plan-features li {
+        font-size: 0.85rem;
+      }
+
+      .testimonial-text {
+        font-size: 0.9rem;
+      }
+
+      .cta-section h2 {
+        font-size: 1.6rem;
+      }
+
+      .cta-section p {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* FIX PER BACKGROUND ATTACHMENT SU MOBILE */
+    @media (max-width: 1024px) {
+      .hero,
+      .hero-motivational,
+      .benefits,
+      .motivational-banner {
+        background-attachment: scroll;
       }
     }
   </style>
@@ -787,8 +1003,8 @@
   <!-- HERO MOTIVATIONAL -->
   <section class="hero-motivational">
     <div class="motivational-overlay">
-      <h2>Il Tuo Personal Trainer, Ovunque Tu Sia</h2>
-      <p>Trasforma il tuo corpo senza limiti di spazio e tempo</p>
+      <h2>Trasforma il tuo corpo senza limiti di spazio e tempo</h2>
+      <p>Il Tuo Personal Trainer, Ovunque Tu Sia</p>
     </div>
   </section>
 
