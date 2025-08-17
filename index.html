@@ -3,80 +3,1254 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Torno in Forma</title>
+  <title>TornoInForma – Il Tuo Personal Trainer Online | Allenati Ovunque</title>
+  <meta name="description" content="Trasforma il tuo corpo con il coaching online personalizzato. Web app dedicata, schede su misura e supporto costante. Inizia oggi!">
+  
   <style>
-    body {margin:0; font-family: Arial, sans-serif; color:#333;}
-    header, section, footer {padding:40px 20px; text-align:center;}
-    header {background:#f5f5f5;}
-    h1 {font-size:2.2em; margin-bottom:10px;}
-    h2 {font-size:1.8em; margin-bottom:20px;}
-    p {font-size:1.1em; line-height:1.6;}
-    .hero {background:#ff7f50; color:#fff; padding:60px 20px;}
-    .hero h1 {font-size:2.8em;}
-    .features {display:flex; flex-wrap:wrap; justify-content:center; gap:20px;}
-    .feature {flex:1 1 280px; background:#fafafa; border-radius:8px; padding:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);} 
-    .feature img {max-width:100%; border-radius:8px;}
-    .cta {background:#333; color:#fff; padding:50px 20px;}
-    .cta h2 {color:#fff;}
-    .cta-buttons {margin-top:20px; display:flex; flex-direction:column; gap:20px; align-items:center;}
-    .store-badges{display:flex; gap:12px; align-items:center; flex-wrap:wrap; justify-content:center;}
-    .store-badge{height:44px; display:block;}
-    @media (max-width:768px){.store-badge{height:40px;}}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(135deg, rgba(255,107,0,0.92) 0%, rgba(255,152,0,0.88) 100%), 
+                  url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&h=1080&fit=crop') center center;
+      background-size: cover;
+      background-attachment: fixed;
+      color: white;
+      padding: 60px 0;
+      position: relative;
+      text-align: center;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 14px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      animation: fadeInUp 0.8s ease;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      margin-bottom: 40px;
+      opacity: 0.95;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 1s ease;
+      padding: 0 10px;
+    }
+
+    .cta-primary {
+      display: inline-block;
+      background: white;
+      color: #ff6b00;
+      padding: 18px 45px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: fadeInUp 1.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-primary:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .cta-primary:hover:before {
+      left: 100%;
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+
+    /* HERO MOTIVATIONAL */
+    .hero-motivational {
+      height: 400px;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
+                  url('https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=1920&h=800&fit=crop') center center;
+      background-size: cover;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 60px;
+      padding: 20px;
+    }
+
+    .motivational-overlay {
+      text-align: center;
+      color: white;
+      padding: 30px 20px;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(5px);
+      border-radius: 20px;
+      max-width: 90%;
+    }
+
+    .motivational-overlay h2 {
+      font-size: clamp(1.8rem, 6vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+      line-height: 1.2;
+    }
+
+    .motivational-overlay p {
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      font-weight: 600;
+      color: #ff6b00;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+
+    /* APP SHOWCASE */
+    .app-showcase {
+      padding: 60px 0;
+      background: #1a1a1a;
+      position: relative;
+      color: white;
+    }
+
+    .app-showcase .container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .app-content h2 {
+      color: #ff6b00;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 20px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .app-content p {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .app-download {
+      display: inline-flex;
+      align-items: center;
+      background: #ff6b00;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+      font-weight: 600;
+    }
+
+    .app-download:hover {
+      transform: scale(1.05);
+      background: #ff8500;
+    }
+
+    .app-screenshots {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .screenshot-container {
+      text-align: center;
+    }
+
+    .app-screenshot {
+      width: 200px;
+      height: 400px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .app-screenshot:hover {
+      transform: scale(1.05);
+    }
+
+    .screenshot-label {
+      margin-top: 15px;
+      color: #ff6b00;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* HOW IT WORKS */
+    .how-it-works {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .how-it-works h2 {
+      text-align: center;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: #333;
+      margin-bottom: 50px;
+      font-weight: 800;
+      line-height: 1.2;
+      padding: 0 10px;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .step-card {
+      background: linear-gradient(145deg, #fff, #f8f9fa);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step-card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #ff6b00, #ff9800);
+    }
+
+    .step-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(255,107,0,0.15);
+    }
+
+    .step-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .step-number {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #ff6b00, #ff9800);
+      color: white;
+      border-radius: 50%;
+      line-height: 60px;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .step-description {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* BENEFITS */
+    .benefits {
+      padding: 60px 0;
+      background: linear-gradient(135deg, rgba(255,107,0,0.95) 0%, rgba(255,152,0,0.92) 100%),
+                  url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&h=1080&fit=crop') center center;
+      background-size: cover;
+      background-attachment: fixed;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefits:before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+
+    .benefits h2 {
+      text-align: center;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 40px;
+      font-weight: 800;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      line-height: 1.2;
+      padding: 0 10px;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .benefit-item {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      padding: 25px;
+      border-radius: 15px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .benefit-item:hover {
+      background: rgba(255,255,255,0.15);
+      transform: scale(1.05);
+    }
+
+    .benefit-icon {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+
+    .benefit-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .benefit-text {
+      color: rgba(255,255,255,0.9);
+      line-height: 1.5;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    /* MOTIVATIONAL BANNER */
+    .motivational-banner {
+      height: 350px;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), 
+                  url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=1920&h=600&fit=crop') center center;
+      background-size: cover;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin: 80px 0;
+      padding: 20px;
+    }
+
+    .banner-content {
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+
+    .banner-content h2 {
+      font-size: clamp(1.8rem, 6vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      line-height: 1.2;
+    }
+
+    .banner-content p {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 600;
+      color: #ff6b00;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    /* PRICING */
+    .pricing {
+      padding: 60px 0;
+      background: #f8f9fa;
+    }
+
+    .pricing h2 {
+      text-align: center;
+      font-size: clamp(1.8rem, 4vw, 2rem);
+      color: #333;
+      margin-bottom: 12px;
+      font-weight: 800;
+      padding: 0 10px;
+    }
+
+    .pricing-subtitle {
+      text-align: center;
+      color: #666;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      margin-bottom: 40px;
+      padding: 0 20px;
+    }
+
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      transform: scale(1.02);
+      box-shadow: 0 10px 30px rgba(255,107,0,0.15);
+    }
+
+    .pricing-card.featured:before {
+      content: 'PIÙ SCELTO';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #ff6b00, #ff9800);
+      color: white;
+      padding: 4px 15px;
+      border-radius: 15px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+    }
+
+    .pricing-card.featured:hover {
+      transform: scale(1.02) translateY(-5px);
+    }
+
+    .plan-name {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .plan-duration {
+      color: #999;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+
+    .plan-price {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #ff6b00;
+      margin-bottom: 20px;
+    }
+
+    .plan-price sup {
+      font-size: 1.1rem;
+    }
+
+    .plan-features {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .plan-features li {
+      padding: 8px 0;
+      color: #666;
+      position: relative;
+      padding-left: 22px;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    .plan-features li:before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #4CAF50;
+      font-weight: 700;
+    }
+
+    .plan-cta {
+      display: inline-block;
+      width: 100%;
+      background: linear-gradient(135deg, #ff6b00, #ff9800);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .plan-cta:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(255,107,0,0.3);
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .testimonials h2 {
+      text-align: center;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: #333;
+      margin-bottom: 50px;
+      font-weight: 800;
+      padding: 0 10px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .testimonial-card {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 20px;
+      position: relative;
+    }
+
+    .testimonial-card:before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      font-size: 4rem;
+      color: #ff6b00;
+      opacity: 0.2;
+      font-weight: 800;
+    }
+
+    .testimonial-text {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      line-height: 1.8;
+      color: #666;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #ff6b00, #ff9800);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    .author-info {
+      flex: 1;
+    }
+
+    .author-name {
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 3px;
+    }
+
+    .author-role {
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    .stars {
+      color: #FFC107;
+      margin-bottom: 5px;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ff6b00" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,138.7C672,128,768,128,864,154.7C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>');
+      background-size: cover;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      margin-bottom: 20px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .cta-section p {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      margin-bottom: 40px;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(37,211,102,0.3);
+    }
+
+    .cta-whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(37,211,102,0.4);
+    }
+
+    .cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: white;
+      padding: 15px 30px;
+      border: 2px solid white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      transition: all 0.3s ease;
+    }
+
+    .cta-secondary:hover {
+      background: white;
+      color: #333;
+      transform: translateY(-3px);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1a1a1a;
+      color: #999;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ff6b00;
+      text-decoration: none;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+      font-size: clamp(0.85rem, 2vw, 1rem);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* RESPONSIVE MOBILE */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 40px 0;
+        min-height: 60vh;
+      }
+
+      .hero-badge {
+        font-size: 12px;
+        padding: 6px 15px;
+      }
+
+      .cta-primary {
+        padding: 15px 30px;
+        font-size: 1rem;
+      }
+
+      .hero-motivational {
+        height: 350px;
+        margin-bottom: 40px;
+      }
+
+      .app-showcase {
+        padding: 40px 0;
+      }
+
+      .app-showcase .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .app-screenshots {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .app-screenshot {
+        width: 150px;
+        height: 300px;
+      }
+
+      .how-it-works {
+        padding: 60px 0;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .step-card {
+        padding: 25px 20px;
+      }
+
+      .benefits {
+        padding: 50px 0;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .benefit-item {
+        padding: 20px;
+      }
+
+      .benefit-title {
+        font-size: 1rem;
+      }
+
+      .motivational-banner {
+        height: 300px;
+        margin: 60px 0;
+      }
+
+      .pricing {
+        padding: 50px 0;
+      }
+
+      .pricing-cards {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+      }
+
+      .pricing-card.featured {
+        transform: scale(1);
+      }
+
+      .testimonials {
+        padding: 60px 0;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 10px;
+      }
+
+      .testimonial-card {
+        padding: 25px 20px;
+      }
+
+      .cta-section {
+        padding: 60px 0;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .cta-whatsapp,
+      .cta-secondary {
+        width: 90%;
+        max-width: 300px;
+        justify-content: center;
+      }
+    }
+
+    /* EXTRA SMALL DEVICES */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 15px;
+      }
+
+      .hero {
+        padding: 30px 0;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+
+      .hero-motivational {
+        height: 300px;
+      }
+
+      .motivational-overlay h2 {
+        font-size: 1.5rem;
+      }
+
+      .motivational-overlay p {
+        font-size: 1rem;
+      }
+
+      .app-screenshot {
+        width: 120px;
+        height: 240px;
+      }
+
+      .screenshot-label {
+        font-size: 0.85rem;
+      }
+
+      .step-number {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.2rem;
+      }
+
+      .step-title {
+        font-size: 1.1rem;
+      }
+
+      .step-description {
+        font-size: 0.9rem;
+      }
+
+      .benefit-icon {
+        font-size: 1.8rem;
+      }
+
+      .benefit-text {
+        font-size: 0.85rem;
+      }
+
+      .banner-content h2 {
+        font-size: 1.5rem;
+      }
+
+      .banner-content p {
+        font-size: 1rem;
+      }
+
+      .plan-price {
+        font-size: 1.8rem;
+      }
+
+      .plan-features li {
+        font-size: 0.85rem;
+      }
+
+      .testimonial-text {
+        font-size: 0.9rem;
+      }
+
+      .cta-section h2 {
+        font-size: 1.6rem;
+      }
+
+      .cta-section p {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* FIX PER BACKGROUND ATTACHMENT SU MOBILE */
+    @media (max-width: 1024px) {
+      .hero,
+      .hero-motivational,
+      .benefits,
+      .motivational-banner {
+        background-attachment: scroll;
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- HERO SECTION -->
   <header class="hero">
-    <h1>Torno in Forma</h1>
-    <p>La tua palestra sempre con te, direttamente sullo smartphone.</p>
-    <div class="store-badges" style="margin-top:20px;">
-      <a href="https://apps.apple.com/us/app/torno-in-forma/id6478311352" target="_blank" rel="noopener">
-        <img class="store-badge" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/it-it?size=140x47&releaseDate=1700000000" alt="Scarica su App Store">
-      </a>
-      <a href="https://play.google.com/store/apps/details?id=com.revoo.tornoinforma&hl=it" target="_blank" rel="noopener">
-        <img class="store-badge" src="https://play.google.com/intl/it/badges/static/images/badges/it_badge_web_generic.png" alt="Disponibile su Google Play">
+    <div class="container">
+      <span class="hero-badge">🚀 TRASFORMA IL TUO CORPO ONLINE</span>
+      <h1>Il Tuo Personal Trainer,<br>Ovunque Tu Sia</h1>
+      <p>Allenati con schede personalizzate, web app dedicata e supporto costante. Niente più scuse, solo risultati.</p>
+      <a href="#how-it-works" class="cta-primary">
+        💪 Inizia la Tua Trasformazione
       </a>
     </div>
   </header>
 
-  <section>
-    <h2>La Tua Palestra nel Tuo Smartphone</h2>
-    <div class="features">
-      <div class="feature">
-        <img src="images/app-schede.jpg" alt="Schede di allenamento">
-        <h3>Schede Personalizzate</h3>
-        <p>Piani di allenamento studiati su misura per te.</p>
+  <!-- HERO MOTIVATIONAL -->
+  <section class="hero-motivational">
+    <div class="motivational-overlay">
+      <h2>Trasforma il tuo corpo senza limiti di spazio e tempo</h2>
+      <p>Il Tuo Personal Trainer, Ovunque Tu Sia</p>
+    </div>
+  </section>
+
+  <!-- APP SHOWCASE -->
+  <section class="app-showcase">
+    <div class="container">
+      <div class="app-content">
+        <h2>La Tua Palestra nel Tuo Smartphone</h2>
+        <p>Con la web app TornoInForma hai sempre con te il tuo programma di allenamento. Video tutorial, timer, progressi: tutto a portata di tap.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.revoo.tornoinforma&hl=it" class="app-download">
+          <svg width="24" height="24" fill="currentColor" style="margin-right: 10px;">
+            <path d="M3 3.5v17.5c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V3.5c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1zm15 11.5l-4.5-4.5L9 15l-3-3-3 3V5h18v10z"/>
+          </svg>
+          Scarica l'App
+        </a>
       </div>
-      <div class="feature">
-        <img src="images/app-progressi.jpg" alt="Progressi">
-        <h3>Monitora i Progressi</h3>
-        <p>Tieni traccia dei tuoi risultati e dei tuoi miglioramenti.</p>
-      </div>
-      <div class="feature">
-        <img src="images/app-chat.jpg" alt="Chat">
-        <h3>Supporto Costante</h3>
-        <p>Comunica con il tuo trainer direttamente dall’app.</p>
+      <div class="app-screenshots">
+        <div class="screenshot-container">
+          <img src="images/app-schede.jpg" alt="Schede allenamento app" class="app-screenshot">
+          <div class="screenshot-label">Schede Personalizzate</div>
+        </div>
+        <div class="screenshot-container">
+          <img src="images/app-chat.jpg" alt="Chat con personal trainer" class="app-screenshot">
+          <div class="screenshot-label">Chat con PT</div>
+        </div>
+        <div class="screenshot-container">
+          <img src="images/app-progressi.jpg" alt="Monitora progressi fitness" class="app-screenshot">
+          <div class="screenshot-label">Traccia Progressi</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="cta">
-    <h2>Scarica l'App e Inizia Subito!</h2>
-    <div class="cta-buttons">
-      <div class="store-badges">
-        <a href="https://apps.apple.com/us/app/torno-in-forma/id6478311352" target="_blank" rel="noopener">
-          <img class="store-badge" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/it-it?size=140x47&releaseDate=1700000000" alt="Scarica su App Store">
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.revoo.tornoinforma&hl=it" target="_blank" rel="noopener">
-          <img class="store-badge" src="https://play.google.com/intl/it/badges/static/images/badges/it_badge_web_generic.png" alt="Disponibile su Google Play">
-        </a>
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <h2>Come Iniziare il Tuo Percorso</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=400&h=300&fit=crop" alt="Videocall analisi iniziale personal trainer online" class="step-image">
+          <div class="step-number">1</div>
+          <div class="step-title">Analisi Iniziale</div>
+          <div class="step-description">Videocall conoscitiva per capire i tuoi obiettivi e creare il piano perfetto per te</div>
+        </div>
+        <div class="step-card">
+          <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400&h=300&fit=crop" alt="Piano personalizzato fitness" class="step-image">
+          <div class="step-number">2</div>
+          <div class="step-title">Piano Personalizzato</div>
+          <div class="step-description">Ricevi la tua scheda di allenamento su misura, basata sui tuoi obiettivi specifici</div>
+        </div>
+        <div class="step-card">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop" alt="App fitness TornoInForma" class="step-image">
+          <div class="step-number">3</div>
+          <div class="step-title">Accesso alla Web App</div>
+          <div class="step-description">Tutti i tuoi esercizi con video tutorial sempre disponibili su TornoInForma</div>
+        </div>
+        <div class="step-card">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop" alt="Chat WhatsApp supporto personal trainer" class="step-image">
+          <div class="step-number">4</div>
+          <div class="step-title">Supporto Costante</div>
+          <div class="step-description">Chat diretta per domande, aggiornamenti periodici e monitoraggio progressi</div>
+        </div>
       </div>
-      <a href="https://wa.me/393491234567" class="cta-secondary" style="color:#fff; text-decoration:none; font-size:1.2em;">💬 Contattaci su WhatsApp</a>
     </div>
   </section>
 
+  <!-- BENEFITS -->
+  <section class="benefits">
+    <div class="container">
+      <h2>Perché Scegliere il Coaching Online</h2>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon">🎯</div>
+          <div class="benefit-title">100% PERSONALIZZATO</div>
+          <div class="benefit-text">Ogni programma è creato specificamente per te, i tuoi obiettivi e il tuo livello</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">📱</div>
+          <div class="benefit-title">SEMPRE CON TE</div>
+          <div class="benefit-text">Allenati dove vuoi: casa, palestra, parco. La tua scheda è sempre nel tuo smartphone</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">💬</div>
+          <div class="benefit-title">SUPPORTO DIRETTO</div>
+          <div class="benefit-text">Non sei solo! Chat WhatsApp per domande, dubbi e motivazione quando ne hai bisogno</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">💰</div>
+          <div class="benefit-title">RISPARMIA TEMPO E DENARO</div>
+          <div class="benefit-text">Costi ridotti rispetto al PT in studio, zero spostamenti, massima flessibilità</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">📊</div>
+          <div class="benefit-title">MONITORA I PROGRESSI</div>
+          <div class="benefit-text">Traccia i tuoi miglioramenti e ricevi aggiornamenti basati sui risultati raggiunti</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🎥</div>
+          <div class="benefit-title">VIDEO TUTORIAL</div>
+          <div class="benefit-text">Ogni esercizio con video esplicativo per esecuzione perfetta e massima sicurezza</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOTIVATIONAL BANNER -->
+  <section class="motivational-banner">
+    <div class="banner-content">
+      <h2>Non Aspettare il Momento Perfetto</h2>
+      <p>Crealo Tu, Ora!</p>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing">
+    <div class="container">
+      <h2>Scegli il Tuo Piano</h2>
+      <p class="pricing-subtitle">Investi su te stesso con il piano più adatto ai tuoi obiettivi</p>
+      <div class="pricing-cards">
+        
+        <div class="pricing-card">
+          <div class="plan-name">BASE</div>
+          <div class="plan-duration">1 mese</div>
+          <div class="plan-price"><sup>€</sup>99</div>
+          <ul class="plan-features">
+            <li>Scheda personalizzata completa</li>
+            <li>Accesso web app TornoInForma</li>
+            <li>Video tutorial esercizi</li>
+            <li>Supporto email</li>
+          </ul>
+          <a href="https://wa.me/3478881515?text=Vorrei%20info%20sul%20piano%20BASE%201%20mese" class="plan-cta">Contattami</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="plan-name">STANDARD</div>
+          <div class="plan-duration">3 mesi</div>
+          <div class="plan-price"><sup>€</sup>249</div>
+          <ul class="plan-features">
+            <li>Tutto del piano Base</li>
+            <li>2 aggiornamenti scheda</li>
+            <li>Supporto WhatsApp prioritario</li>
+            <li>Check mensile progressi</li>
+            <li>Consigli nutrizionali base</li>
+          </ul>
+          <a href="https://wa.me/3478881515?text=Vorrei%20info%20sul%20piano%20STANDARD%203%20mesi" class="plan-cta">Contattami</a>
+        </div>
+
+        <div class="pricing-card">
+          <div class="plan-name">PREMIUM</div>
+          <div class="plan-duration">6 mesi</div>
+          <div class="plan-price"><sup>€</sup>449</div>
+          <ul class="plan-features">
+            <li>Tutto del piano Standard</li>
+            <li>Aggiornamenti illimitati</li>
+            <li>Supporto WhatsApp 24/7</li>
+            <li>Videocall mensili</li>
+            <li>Piano nutrizionale completo</li>
+            <li>Accesso contenuti esclusivi</li>
+          </ul>
+          <a href="https://wa.me/3478881515?text=Vorrei%20info%20sul%20piano%20PREMIUM%206%20mesi" class="plan-cta">Contattami</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>Storie di Successo</h2>
+      <div class="testimonials-grid">
+        
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">
+            "Finalmente posso allenarmi seriamente anche in trasferta per lavoro. La web app è comodissima e il supporto WhatsApp mi ha aiutato tantissimo. -8kg in 3 mesi!"
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MC</div>
+            <div class="author-info">
+              <div class="author-name">Marco C.</div>
+              <div class="author-role">Manager, si allena da 3 mesi</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">
+            "Da mamma di due bimbi, allenarmi in palestra era impossibile. Con TornoInForma mi alleno quando loro dormono. Risultati incredibili e zero stress!"
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SF</div>
+            <div class="author-info">
+              <div class="author-name">Sara F.</div>
+              <div class="author-role">Mamma fitness, cliente da 6 mesi</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">
+            "Scettico all'inizio sul coaching online, ma mi sono ricreduto. Professionalità top, app fantastica e risultati che parlano da soli. Consiglio a tutti!"
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">LR</div>
+            <div class="author-info">
+              <div class="author-name">Luca R.</div>
+              <div class="author-role">Imprenditore, trasformato in 4 mesi</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Pronto a Cambiare la Tua Vita?</h2>
+        <p>Basta rimandare. Il momento giusto è ORA. Inizia oggi il tuo percorso verso il corpo che hai sempre desiderato.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/3478881515?text=Ciao!%20Sono%20pronto%20per%20iniziare%20il%20mio%20percorso%20fitness%20online!" class="cta-whatsapp">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5.795 15.795c-.763.763-1.642 1.362-2.61 1.78-1.002.433-2.068.653-3.185.653s-2.183-.22-3.185-.653c-.968-.418-1.847-1.017-2.61-1.78s-1.362-1.642-1.78-2.61C3.992 14.183 3.772 13.117 3.772 12s.22-2.183.653-3.185c.418-.968 1.017-1.847 1.78-2.61s1.642-1.362 2.61-1.78C9.817 3.992 10.883 3.772 12 3.772s2.183.22 3.185.653c.968.418 1.847 1.017 2.61 1.78s1.362 1.642 1.78 2.61c.433 1.002.653 2.068.653 3.185s-.22 2.183-.653 3.185c-.418.968-1.017 1.847-1.78 2.61z"/>
+            </svg>
+            Contattami
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.revoo.tornoinforma&hl=it" class="cta-secondary">
+            📱 Scarica l'App
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Torno in Forma. Tutti i diritti riservati.</p>
+    <div class="container">
+      <p>&copy; 2024 TornoInForma - Personal Trainer Online | <a href="https://www.personaltrainerverona.it">PersonalTrainerVerona.it</a></p>
+      <p>P.IVA: 12345678901 | Tel: +39 347 888 1515</p>
+    </div>
   </footer>
 
 </body>
