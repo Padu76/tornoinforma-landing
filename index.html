@@ -313,12 +313,10 @@
 
     /* BENEFITS */
     .benefits {
-      padding: 60px 0;
-      background: linear-gradient(135deg, rgba(255,107,0,0.95) 0%, rgba(255,152,0,0.92) 100%),
-                  url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&h=1080&fit=crop') center center;
-      background-size: cover;
-      background-attachment: fixed;
-      color: white;
+      padding: 80px 0;
+      background: linear-gradient(135deg, rgba(26,26,26,0.95) 0%, rgba(38,38,38,0.92) 100%),
+                  url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&h=1080&fit=crop') center/cover no-repeat;
+      color: #fff;
       position: relative;
       overflow: hidden;
     }
@@ -326,65 +324,129 @@
     .benefits:before {
       content: '';
       position: absolute;
-      top: -50%;
-      right: -10%;
-      width: 500px;
-      height: 500px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 50%;
+      inset: -20% -10% auto -10%;
+      height: 420px;
+      background: radial-gradient(600px 200px at 50% 0, rgba(255,107,0,0.25), transparent 60%);
+      pointer-events: none;
     }
 
     .benefits h2 {
       text-align: center;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      margin-bottom: 40px;
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      margin-bottom: 18px;
       font-weight: 800;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
       line-height: 1.2;
-      padding: 0 10px;
+    }
+
+    .benefits-subtitle {
+      text-align: center;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 45px;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
     }
 
     .benefits-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
       position: relative;
       z-index: 1;
     }
 
-    .benefit-item {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      padding: 25px;
-      border-radius: 15px;
-      border: 1px solid rgba(255,255,255,0.2);
-      transition: all 0.3s ease;
+    .benefit-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      transform: translateZ(0);
+      transition: transform .35s ease, box-shadow .35s ease, background .35s ease;
     }
 
-    .benefit-item:hover {
-      background: rgba(255,255,255,0.15);
+    .benefit-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .benefit-media {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .benefit-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       transform: scale(1.05);
+      transition: transform .6s ease;
+      filter: saturate(1.05) contrast(1.05);
     }
 
-    .benefit-icon {
-      font-size: 2.2rem;
-      margin-bottom: 12px;
+    .benefit-card:hover .benefit-media img { transform: scale(1.12); }
+
+    .benefit-chip {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .benefit-body {
+      padding: 18px 18px 22px;
     }
 
     .benefit-title {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 800;
-      margin-bottom: 8px;
+      letter-spacing: .4px;
+      color: #fff;
+      margin-bottom: 6px;
       text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
     .benefit-text {
       color: rgba(255,255,255,0.9);
-      line-height: 1.5;
-      font-weight: 500;
-      font-size: 0.95rem;
+      line-height: 1.55;
+      font-size: .98rem;
+      min-height: 56px;
     }
+
+    .benefits-cta {
+      text-align: center;
+      margin-top: 34px;
+    }
+
+    .benefits-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #ff6b00, #ff9800);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 12px 30px rgba(255,107,0,0.35);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .benefits-cta a:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(255,107,0,0.45); }
+
+    @media (max-width: 768px){
+      .benefits { padding: 60px 0; }
+      .benefit-media{ height: 160px; }
+    }
+
+    @media (min-width: 992px){ .benefits-grid { grid-template-columns: repeat(3, 1fr); } }
 
     /* MOTIVATIONAL BANNER */
     .motivational-banner {
@@ -1083,37 +1145,84 @@
   <section class="benefits">
     <div class="container">
       <h2>Perché Scegliere il Coaching Online</h2>
+      <p class="benefits-subtitle">Massima flessibilità, piani su misura, risparmio concreto e supporto reale. Tutto in un'unica app.</p>
+
       <div class="benefits-grid">
-        <div class="benefit-item">
-          <div class="benefit-icon">🎯</div>
-          <div class="benefit-title">100% PERSONALIZZATO</div>
-          <div class="benefit-text">Ogni programma è creato specificamente per te, i tuoi obiettivi e il tuo livello</div>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon">📱</div>
-          <div class="benefit-title">SEMPRE CON TE</div>
-          <div class="benefit-text">Allenati dove vuoi: casa, palestra, parco. La tua scheda è sempre nel tuo smartphone</div>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon">💬</div>
-          <div class="benefit-title">SUPPORTO DIRETTO</div>
-          <div class="benefit-text">Non sei solo! Chat WhatsApp per domande, dubbi e motivazione quando ne hai bisogno</div>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon">💰</div>
-          <div class="benefit-title">RISPARMIA TEMPO E DENARO</div>
-          <div class="benefit-text">Costi ridotti rispetto al PT in studio, zero spostamenti, massima flessibilità</div>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon">📊</div>
-          <div class="benefit-title">MONITORA I PROGRESSI</div>
-          <div class="benefit-text">Traccia i tuoi miglioramenti e ricevi aggiornamenti basati sui risultati raggiunti</div>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon">🎥</div>
-          <div class="benefit-title">VIDEO TUTORIAL</div>
-          <div class="benefit-text">Ogni esercizio con video esplicativo per esecuzione perfetta e massima sicurezza</div>
-        </div>
+        <!-- 1: Flessibilità -->
+        <article class="benefit-card">
+          <figure class="benefit-media">
+            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80" alt="Allenati ovunque con il telefono e tappetino">
+            <span class="benefit-chip">Flessibilità</span>
+          </figure>
+          <div class="benefit-body">
+            <h3 class="benefit-title">ALLENATI QUANDO VUOI</h3>
+            <p class="benefit-text">Casa, palestra o viaggio: il tuo programma ti segue sempre, senza vincoli di orario o luogo.</p>
+          </div>
+        </article>
+
+        <!-- 2: Personalizzazione -->
+        <article class="benefit-card">
+          <figure class="benefit-media">
+            <img src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba?w=1200&h=800&fit=crop" alt="Personal trainer che imposta un piano su tablet">
+            <span class="benefit-chip">Personalizzazione</span>
+          </figure>
+          <div class="benefit-body">
+            <h3 class="benefit-title">PIANO SU MISURA</h3>
+            <p class="benefit-text">Schede cucite su obiettivi, livello ed esigenze: niente template generici, solo ciò che ti serve.</p>
+          </div>
+        </article>
+
+        <!-- 3: Supporto diretto -->
+        <article class="benefit-card">
+          <figure class="benefit-media">
+            <img src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?w=1200&h=800&fit=crop" alt="Supporto via chat con personal trainer online">
+            <span class="benefit-chip">Supporto</span>
+          </figure>
+          <div class="benefit-body">
+            <h3 class="benefit-title">SUPPORTO DIRETTO</h3>
+            <p class="benefit-text">Chat WhatsApp per domande, dubbi e motivazione quando ne hai bisogno. Non sei mai solo.</p>
+          </div>
+        </article>
+
+        <!-- 4: Risparmio -->
+        <article class="benefit-card">
+          <figure class="benefit-media">
+            <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80" alt="Risparmio di tempo e denaro con coaching online">
+            <span class="benefit-chip">Risparmio</span>
+          </figure>
+          <div class="benefit-body">
+            <h3 class="benefit-title">RISPARMIA TEMPO E DENARO</h3>
+            <p class="benefit-text">Niente spostamenti, costi ridotti rispetto al PT in studio e massima flessibilità organizzativa.</p>
+          </div>
+        </article>
+
+        <!-- 5: Progressi -->
+        <article class="benefit-card">
+          <figure class="benefit-media">
+            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&h=800&fit=crop" alt="Monitoraggio progressi con grafici su smartphone">
+            <span class="benefit-chip">Progressi</span>
+          </figure>
+          <div class="benefit-body">
+            <h3 class="benefit-title">MONITORA I PROGRESSI</h3>
+            <p class="benefit-text">Traccia i miglioramenti e ricevi aggiornamenti basati sui risultati reali raggiunti.</p>
+          </div>
+        </article>
+
+        <!-- 6: Video Tutorial -->
+        <article class="benefit-card">
+          <figure class="benefit-media">
+            <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=1200&h=800&fit=crop" alt="Video tutorial esercizi su smartphone">
+            <span class="benefit-chip">Tutorial</span>
+          </figure>
+          <div class="benefit-body">
+            <h3 class="benefit-title">VIDEO TUTORIAL</h3>
+            <p class="benefit-text">Ogni esercizio spiegato passo‑passo in video per un’esecuzione perfetta e sicura.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="benefits-cta">
+        <a href="#how-it-works">🔎 Scopri come funziona</a>
       </div>
     </div>
   </section>
