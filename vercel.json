@@ -1,0 +1,29 @@
+{
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" }
+  ],
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*/",
+      "destination": "/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.tornoinforma.it" }],
+      "destination": "https://tornoinforma.it/:path*",
+      "permanent": true
+    },
+    {
+      "source": "http://tornoinforma.it/:path*",
+      "destination": "https://tornoinforma.it/:path*",
+      "permanent": true
+    }
+  ]
+}
