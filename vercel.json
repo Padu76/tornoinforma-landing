@@ -4,7 +4,6 @@
     { "source": "/index.html", "destination": "/", "permanent": true },
     { "source": "/:path*/", "destination": "/:path*", "permanent": true },
 
-    // Canonicalizza tutto su HTTPS + WWW
     { "source": "/:path*", "has": [{ "type": "host", "value": "tornoinforma.it" }], "destination": "https://www.tornoinforma.it/:path*", "permanent": true },
     { "source": "http://tornoinforma.it/:path*", "destination": "https://www.tornoinforma.it/:path*", "permanent": true },
     { "source": "http://www.tornoinforma.it/:path*", "destination": "https://www.tornoinforma.it/:path*", "permanent": true }
