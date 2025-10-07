@@ -23,7 +23,7 @@ body {
 
 /* HERO SECTION */
 .hero {
-  background: #1a1a1a;
+  background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), url('../images/resize.jpeg') center/cover no-repeat;
   color: white;
   padding: 100px 20px;
   text-align: center;
@@ -31,6 +31,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .hero h1 {
