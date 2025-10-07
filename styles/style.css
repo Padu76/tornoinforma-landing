@@ -23,7 +23,7 @@ body {
 
 /* HERO SECTION */
 .hero {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: #1a1a1a;
   color: white;
   padding: 100px 20px;
   text-align: center;
@@ -31,22 +31,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 107, 0, 0.1) 0%, transparent 100%);
-}
-
-.hero .container {
-  position: relative;
-  z-index: 1;
 }
 
 .hero h1 {
@@ -86,14 +70,14 @@ body {
 /* COME FUNZIONA */
 .how-it-works {
   padding: 80px 20px;
-  background: white;
+  background: #ff6b00;
 }
 
 .how-it-works h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 50px;
-  color: #1a1a1a;
+  color: white;
 }
 
 .steps {
@@ -105,38 +89,37 @@ body {
 }
 
 .step {
-  background: #f8f9fa;
+  background: #1a1a1a;
+  color: white;
   padding: 30px;
   border-radius: 15px;
   text-align: center;
   font-size: 1.1rem;
-  border-left: 4px solid #ff6b00;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   transition: all 0.3s ease;
 }
 
 .step:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(255, 107, 0, 0.15);
-  border-left-width: 6px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
 }
 
 /* APP SHOWCASE */
 .app-showcase {
   padding: 80px 20px;
-  background: #f8f9fa;
+  background: #1a1a1a;
   text-align: center;
 }
 
 .app-showcase h2 {
   font-size: 2.5rem;
   margin-bottom: 15px;
-  color: #1a1a1a;
+  color: white;
 }
 
 .app-subtitle {
   font-size: 1.2rem;
-  color: #666;
+  color: #ccc;
   margin-bottom: 50px;
   max-width: 700px;
   margin-left: auto;
@@ -152,16 +135,16 @@ body {
 }
 
 .app-image {
-  background: white;
+  background: #2d2d2d;
   border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.2);
   transition: all 0.3s ease;
 }
 
 .app-image:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 30px rgba(255, 107, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(255, 107, 0, 0.4);
 }
 
 .app-image img {
@@ -174,20 +157,20 @@ body {
 .app-image p {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #1a1a1a;
+  color: white;
 }
 
 /* VANTAGGI */
 .benefits {
   padding: 80px 20px;
-  background: white;
+  background: #ff6b00;
 }
 
 .benefits h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 50px;
-  color: #1a1a1a;
+  color: white;
 }
 
 .benefits ul {
@@ -197,14 +180,23 @@ body {
 }
 
 .benefits li {
+  background: #1a1a1a;
+  color: white;
   font-size: 1.2rem;
-  padding: 15px 0;
-  border-bottom: 1px solid #e2e8f0;
-  color: #2d2d2d;
+  padding: 20px 25px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.benefits li:hover {
+  transform: translateX(10px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.5);
 }
 
 .benefits li:last-child {
-  border-bottom: none;
+  margin-bottom: 0;
 }
 
 /* PRICING */
@@ -224,10 +216,10 @@ body {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  background: white;
+  background: #2d2d2d;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 40px rgba(255, 107, 0, 0.3);
 }
 
 .pricing th {
@@ -240,8 +232,8 @@ body {
 
 .pricing td {
   padding: 20px;
-  color: #1a1a1a;
-  border-bottom: 1px solid #e2e8f0;
+  color: white;
+  border-bottom: 1px solid #3d3d3d;
 }
 
 .pricing tr:last-child td {
@@ -249,13 +241,13 @@ body {
 }
 
 .pricing tr:hover td {
-  background: #fff8f3;
+  background: #3d3d3d;
 }
 
 /* CTA FINALE */
 .cta-final {
   padding: 100px 20px;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: #ff6b00;
   color: white;
   text-align: center;
 }
@@ -266,12 +258,12 @@ body {
 }
 
 .cta-final .cta {
-  background: #ff6b00;
+  background: #1a1a1a;
   color: white;
 }
 
 .cta-final .cta:hover {
-  background: #e65f00;
+  background: #2d2d2d;
 }
 
 /* ANIMATIONS */
@@ -299,11 +291,16 @@ body {
   .how-it-works h2,
   .benefits h2,
   .pricing h2,
-  .cta-final h2 {
+  .cta-final h2,
+  .app-showcase h2 {
     font-size: 1.8rem;
   }
   
   .steps {
+    grid-template-columns: 1fr;
+  }
+  
+  .app-images {
     grid-template-columns: 1fr;
   }
   
