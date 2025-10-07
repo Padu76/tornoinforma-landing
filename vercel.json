@@ -1,21 +1,3 @@
 {
-  "trailingSlash": false,
-  "redirects": [
-    { 
-      "source": "/index.html", 
-      "destination": "/", 
-      "permanent": true 
-    },
-    { 
-      "source": "/:path*/", 
-      "destination": "/:path*", 
-      "permanent": true 
-    },
-    { 
-      "source": "/:path*", 
-      "has": [{ "type": "host", "value": "tornoinforma.it" }], 
-      "destination": "https://www.tornoinforma.it/:path*", 
-      "permanent": true 
-    }
-  ]
+  "trailingSlash": false
 }
