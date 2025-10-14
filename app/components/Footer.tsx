@@ -1,4 +1,3 @@
-// app/components/Footer.tsx
 'use client'
 import { motion } from 'framer-motion'
 import { Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react'
@@ -23,7 +22,7 @@ export default function Footer() {
               alt="Torno in Forma" 
               width={200} 
               height={50}
-              className="h-12 w-auto mb-6 filter brightness-0 invert"
+              className="h-12 w-auto mb-6"
             />
             <p className="text-gray-300 mb-6 max-w-md">
               Il percorso completo di trasformazione fisica online. 
@@ -77,8 +76,8 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary" />
-                <a href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`} className="text-gray-300 hover:text-primary transition-colors">
-                  WhatsApp
+                <a href="https://wa.me/393478881515" className="text-gray-300 hover:text-primary transition-colors">
+                  WhatsApp 347 888 1515
                 </a>
               </div>
               <div className="flex items-center gap-3">
