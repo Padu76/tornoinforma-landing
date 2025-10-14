@@ -47,7 +47,7 @@ export default function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Column - Content */}
           <motion.div 
@@ -103,60 +103,60 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Column - App Screenshots */}
+          {/* Right Column - App Screenshots Horizontal */}
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="relative flex justify-center lg:justify-end"
+            className="relative"
           >
-            <div className="relative w-full max-w-md">
-              {/* Layout a Z con spazi chiari */}
-              <div className="relative space-y-8">
+            <div className="relative">
+              {/* Grid orizzontale 3 colonne */}
+              <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
                 
-                {/* Prima immagine - in alto a sinistra */}
+                {/* Prima immagine */}
                 <motion.div
-                  animate={{ y: [-8, 8, -8] }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                  className="relative z-30"
+                  animate={{ y: [-5, 5, -5] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                  className="relative"
                 >
                   <Image
                     src="/app-pt.jpg"
                     alt="Condividi il percorso con il tuo PT"
-                    width={180}
-                    height={320}
-                    className="rounded-2xl shadow-2xl"
+                    width={140}
+                    height={280}
+                    className="rounded-xl shadow-xl"
                   />
                 </motion.div>
 
-                {/* Seconda immagine - al centro, leggermente spostata a destra */}
+                {/* Seconda immagine */}
                 <motion.div
-                  animate={{ y: [8, -8, 8] }}
-                  transition={{ duration: 4, repeat: Infinity, delay: 1.3 }}
-                  className="relative z-20 ml-16 -mt-16"
+                  animate={{ y: [5, -5, 5] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+                  className="relative"
                 >
                   <Image
                     src="/app-progressi.jpg"
                     alt="Monitora i tuoi progressi"
-                    width={180}
-                    height={320}
-                    className="rounded-2xl shadow-2xl"
+                    width={140}
+                    height={280}
+                    className="rounded-xl shadow-xl"
                   />
                 </motion.div>
 
-                {/* Terza immagine - in basso al centro */}
+                {/* Terza immagine */}
                 <motion.div
-                  animate={{ y: [-5, 5, -5] }}
-                  transition={{ duration: 4, repeat: Infinity, delay: 2.6 }}
-                  className="relative z-10 ml-8 -mt-20"
+                  animate={{ y: [-3, 3, -3] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: 2 }}
+                  className="relative"
                 >
                   <Image
                     src="/app-workout.jpg"
                     alt="Allenati con il tuo smartphone"
-                    width={180}
-                    height={320}
-                    className="rounded-2xl shadow-2xl"
+                    width={140}
+                    height={280}
+                    className="rounded-xl shadow-xl"
                   />
                 </motion.div>
               </div>
@@ -165,19 +165,19 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="absolute top-4 -left-4 bg-white rounded-xl p-4 shadow-lg z-40"
+                className="absolute -top-4 -left-4 bg-white rounded-xl p-3 shadow-lg"
               >
-                <div className="text-2xl font-bold text-primary">500+</div>
-                <div className="text-sm text-gray-600">Clienti</div>
+                <div className="text-xl font-bold text-primary">500+</div>
+                <div className="text-xs text-gray-600">Clienti</div>
               </motion.div>
 
               <motion.div
                 animate={{ y: [10, -10, 10] }}
                 transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-                className="absolute bottom-4 -right-4 bg-white rounded-xl p-4 shadow-lg z-40"
+                className="absolute -bottom-4 -right-4 bg-white rounded-xl p-3 shadow-lg"
               >
-                <div className="text-2xl font-bold text-primary">12 Sett</div>
-                <div className="text-sm text-gray-600">Programma</div>
+                <div className="text-xl font-bold text-primary">12 Sett</div>
+                <div className="text-xs text-gray-600">Programma</div>
               </motion.div>
             </div>
           </motion.div>
