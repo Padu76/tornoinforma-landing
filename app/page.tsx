@@ -2,6 +2,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import HowItWorks from './components/HowItWorks'
 import Benefits from './components/Benefits'
+import AppDownload from './components/AppDownload'
 import Plans from './components/Plans'
 import BookBonus from './components/BookBonus'
 import Testimonials from './components/Testimonials'
@@ -16,6 +17,7 @@ export default function HomePage() {
       <Hero />
       <HowItWorks />
       <Benefits />
+      <AppDownload />
       <Plans />
       <BookBonus />
       <Testimonials />
