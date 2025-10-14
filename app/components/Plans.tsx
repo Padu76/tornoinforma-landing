@@ -27,7 +27,7 @@ const plans = [
       "Accesso app + Meal Prep Planner",
       "2 revisioni programma",
       "Chat diretta con coach",
-      "Libro cartaceo GRATIS",
+      "Libro digitale GRATIS",
       "Accesso Fit Duel"
     ]
   },
@@ -42,7 +42,7 @@ const plans = [
       "Revisioni illimitate",
       "Chiamate mensili",
       "Supporto prioritario",
-      "Libro + contenuti bonus",
+      "Libro digitale GRATIS",
       "Community VIP"
     ]
   }
