@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { BookOpen, Download, Gift, ArrowRight } from 'lucide-react'
+import { BookOpen, Gift, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 
 export default function BookBonus() {
@@ -41,8 +41,8 @@ export default function BookBonus() {
                 transition={{ duration: 4, repeat: Infinity }}
                 className="absolute top-8 -left-8 bg-white rounded-xl p-4 shadow-lg"
               >
-                <div className="text-lg font-bold text-primary">GRATIS</div>
-                <div className="text-sm text-gray-600">Con ogni piano</div>
+                <div className="text-lg font-bold text-primary">INCLUSO</div>
+                <div className="text-sm text-gray-600">Nei piani</div>
               </motion.div>
             </div>
           </motion.div>
@@ -60,12 +60,12 @@ export default function BookBonus() {
             </div>
 
             <h2 className="text-3xl lg:text-4xl font-heading font-bold mb-6">
-              Ricevi il Libro <span className="gradient-text">"Torno in Forma"</span> Gratis
+              Ricevi il Libro <span className="gradient-text">"Torno in Forma"</span> in Regalo
             </h2>
 
             <p className="text-xl text-gray-600 mb-8">
               La guida completa per la trasformazione fisica e mentale. 
-              Strategie, mindset e tutti i segreti per risultati duraturi.
+              Incluso gratuitamente quando inizi il tuo percorso con noi.
             </p>
 
             <div className="space-y-6 mb-8">
@@ -94,14 +94,28 @@ export default function BookBonus() {
               </div>
             </div>
 
+            <div className="bg-primary/10 rounded-xl p-6 mb-8">
+              <h4 className="font-semibold text-lg mb-3">Come ottenerlo:</h4>
+              <ul className="space-y-2 text-gray-700">
+                <li className="flex items-center gap-2">
+                  <div className="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">1</div>
+                  Piano Start: Versione digitale inclusa
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">2</div>
+                  Piani Pro/Elite: Libro cartaceo spedito a casa
+                </li>
+              </ul>
+            </div>
+
             <div className="space-y-4">
-              <button className="w-full sm:w-auto btn-primary flex items-center justify-center gap-2">
-                <Download className="w-5 h-5" />
-                Scarica l'Anteprima Gratis
-              </button>
+              <a href="#piani" className="w-full sm:w-auto btn-primary flex items-center justify-center gap-2">
+                Inizia il Tuo Percorso
+                <ArrowRight className="w-5 h-5" />
+              </a>
               
               <p className="text-sm text-gray-500">
-                📚 Versione digitale immediata + cartacea con i piani Pro ed Elite
+                Il libro è incluso gratuitamente in tutti i nostri piani di trasformazione
               </p>
             </div>
           </motion.div>
