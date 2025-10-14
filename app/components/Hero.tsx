@@ -28,6 +28,17 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 opacity-10">
+        <Image
+          src="/hero-bg.jpg"
+          alt="Background"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -92,42 +103,79 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Column - Visual */}
+          {/* Right Column - App Screenshots */}
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative">
-              <Image
-                src="/hero.webp"
-                alt="Trasformazione Torno in Forma"
-                width={600}
-                height={600}
-                className="rounded-2xl shadow-2xl"
-                priority
-              />
-              
-              {/* Floating Elements */}
+            <div className="grid grid-cols-2 gap-6">
+              {/* App PT Image */}
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="absolute top-4 -left-4 bg-white rounded-xl p-4 shadow-lg"
+                className="relative"
               >
-                <div className="text-2xl font-bold text-primary">500+</div>
-                <div className="text-sm text-gray-600">Clienti</div>
+                <Image
+                  src="/app-pt.jpg"
+                  alt="Condividi il percorso con il tuo PT"
+                  width={200}
+                  height={400}
+                  className="rounded-2xl shadow-2xl"
+                />
               </motion.div>
 
+              {/* App Progressi Image */}
               <motion.div
                 animate={{ y: [10, -10, 10] }}
                 transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-                className="absolute bottom-8 -right-4 bg-white rounded-xl p-4 shadow-lg"
+                className="relative mt-8"
               >
-                <div className="text-2xl font-bold text-primary">12 Sett</div>
-                <div className="text-sm text-gray-600">Programma</div>
+                <Image
+                  src="/app-progressi.jpg"
+                  alt="Monitora i tuoi progressi"
+                  width={200}
+                  height={400}
+                  className="rounded-2xl shadow-2xl"
+                />
               </motion.div>
             </div>
+
+            {/* App Workout Image - Centered Bottom */}
+            <motion.div
+              animate={{ y: [-5, 5, -5] }}
+              transition={{ duration: 4, repeat: Infinity, delay: 2 }}
+              className="absolute -bottom-10 left-1/2 transform -translate-x-1/2"
+            >
+              <Image
+                src="/app-workout.jpg"
+                alt="Allenati con il tuo smartphone"
+                width={180}
+                height={360}
+                className="rounded-2xl shadow-2xl"
+              />
+            </motion.div>
+
+            {/* Floating Elements */}
+            <motion.div
+              animate={{ y: [-10, 10, -10] }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="absolute top-4 -left-4 bg-white rounded-xl p-4 shadow-lg"
+            >
+              <div className="text-2xl font-bold text-primary">500+</div>
+              <div className="text-sm text-gray-600">Clienti</div>
+            </motion.div>
+
+            <motion.div
+              animate={{ y: [10, -10, 10] }}
+              transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+              className="absolute bottom-8 -right-4 bg-white rounded-xl p-4 shadow-lg"
+            >
+              <div className="text-2xl font-bold text-primary">12 Sett</div>
+              <div className="text-sm text-gray-600">Programma</div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
