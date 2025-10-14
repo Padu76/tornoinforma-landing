@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TornoInForma – Coaching Online</title>
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="container">
+      <h1>Il tuo Personal Trainer, ovunque tu sia</h1>
+      <p>Allenati online con schede personalizzate, supporto diretto e la web app TornoInForma.</p>
+      <a href="https://wa.me/3478881515" class="cta">Inizia ora</a>
+    </div>
+  </header>
+
+  <!-- COME FUNZIONA -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2>Come funziona</h2>
+      <div class="steps">
+        <div class="step">📌 Analisi iniziale online</div>
+        <div class="step">📌 Creazione scheda personalizzata</div>
+        <div class="step">📌 Accesso alla web app TornoInForma</div>
+        <div class="step">📌 Supporto e aggiornamenti periodici</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP SCREENSHOTS -->
+  <section class="app-showcase">
+    <div class="container">
+      <h2>La tua palestra digitale</h2>
+      <p class="app-subtitle">Accedi a tutte le tue schede, monitora i progressi e resta in contatto con il tuo trainer</p>
+      <div class="app-images">
+        <div class="app-image">
+          <img src="./images/app-schede.jpg" alt="Schede di allenamento">
+          <p>Schede personalizzate</p>
+        </div>
+        <div class="app-image">
+          <img src="./images/app-progressi.jpg" alt="Monitora i progressi">
+          <p>Traccia i tuoi progressi</p>
+        </div>
+        <div class="app-image">
+          <img src="./images/app-chat.jpg" alt="Chat con il trainer">
+          <p>Supporto diretto</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VANTAGGI -->
+  <section class="benefits">
+    <div class="container">
+      <h2>Perché scegliere il coaching online</h2>
+      <ul>
+        <li>✅ Allenati dove vuoi, senza vincoli</li>
+        <li>✅ Schede ed esercizi sempre disponibili</li>
+        <li>✅ Supporto diretto via chat</li>
+        <li>✅ Costi ridotti rispetto al coaching in studio</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TABELLA PREZZI -->
+  <section class="pricing">
+    <div class="container">
+      <h2>Piani e Prezzi</h2>
+      <table>
+        <tr>
+          <th>Pacchetto</th>
+          <th>Contenuto</th>
+          <th>Prezzo</th>
+        </tr>
+        <tr>
+          <td>Base (1 mese)</td>
+          <td>Scheda personalizzata + accesso app</td>
+          <td>€ 99</td>
+        </tr>
+        <tr>
+          <td>Standard (3 mesi)</td>
+          <td>Aggiornamenti + supporto chat</td>
+          <td>€ 249</td>
+        </tr>
+        <tr>
+          <td>Premium (6 mesi)</td>
+          <td>Supporto illimitato + call mensili</td>
+          <td>€ 449</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- CTA FINALE -->
+  <section class="cta-final">
+    <div class="container">
+      <h2>Vuoi iniziare la tua trasformazione?</h2>
+      <a href="https://wa.me/3478881515" class="cta">Prenota ora su WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- TRACKING SCRIPT -->
+  <script>
+  (function() {
+    'use strict';
+    
+    const CONFIG = {
+      apiEndpoint: 'https://tribu-crm-hub.vercel.app/api/track',
+      websiteId: 'torno-in-forma',
+      enableConsoleLog: false
+    };
+    
+    function getSessionId() {
+      let sessionId = sessionStorage.getItem('tribu_session_id');
+      if (!sessionId) {
+        sessionId = 'sess_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        sessionStorage.setItem('tribu_session_id', sessionId);
+      }
+      return sessionId;
+    }
+    
+    function getUtmParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        utm_source: params.get('utm_source'),
+        utm_medium: params.get('utm_medium'),
+        utm_campaign: params.get('utm_campaign')
+      };
+    }
+    
+    function trackPageView() {
+      const utm = getUtmParams();
+      const data = {
+        website: CONFIG.websiteId,
+        page_url: window.location.pathname + window.location.search,
+        page_title: document.title,
+        referrer: document.referrer || null,
+        session_id: getSessionId(),
+        utm_source: utm.utm_source,
+        utm_medium: utm.utm_medium,
+        utm_campaign: utm.utm_campaign
+      };
+      
+      if (CONFIG.enableConsoleLog) {
+        console.log('Tracking data:', data);
+      }
+      
+      fetch(CONFIG.apiEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(result => {
+        if (CONFIG.enableConsoleLog) {
+          console.log('Tracking success:', result);
+        }
+      })
+      .catch(err => {
+        if (CONFIG.enableConsoleLog) {
+          console.error('Tracking error:', err);
+        }
+      });
+    }
+    
+    // Esegui tracking quando il DOM è pronto
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', trackPageView);
+    } else {
+      trackPageView();
+    }
+  })();
+  </script>
+
+</body>
+</html>

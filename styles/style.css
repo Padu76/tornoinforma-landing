@@ -1,0 +1,316 @@
+/* =====================================================
+   TORNOINFORMA - STYLE CSS
+   ===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #1a1a1a;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* HERO SECTION */
+.hero {
+  background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), url('../images/resize.jpeg') center/cover no-repeat;
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.8s ease;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  opacity: 0.95;
+  animation: fadeInUp 1s ease;
+}
+
+.cta {
+  display: inline-block;
+  background: #ff6b00;
+  color: white;
+  padding: 15px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+  animation: fadeInUp 1.2s ease;
+}
+
+.cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
+  background: #e65f00;
+}
+
+/* COME FUNZIONA */
+.how-it-works {
+  padding: 80px 20px;
+  background: #ff6b00;
+}
+
+.how-it-works h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: white;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.step {
+  background: #1a1a1a;
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+/* APP SHOWCASE */
+.app-showcase {
+  padding: 80px 20px;
+  background: #1a1a1a;
+  text-align: center;
+}
+
+.app-showcase h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.app-subtitle {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 50px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.app-image {
+  background: #2d2d2d;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.app-image:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(255, 107, 0, 0.4);
+}
+
+.app-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.app-image p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+}
+
+/* VANTAGGI */
+.benefits {
+  padding: 80px 20px;
+  background: #ff6b00;
+}
+
+.benefits h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: white;
+}
+
+.benefits ul {
+  list-style: none;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.benefits li {
+  background: #1a1a1a;
+  color: white;
+  font-size: 1.2rem;
+  padding: 20px 25px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.benefits li:hover {
+  transform: translateX(10px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+}
+
+.benefits li:last-child {
+  margin-bottom: 0;
+}
+
+/* PRICING */
+.pricing {
+  padding: 80px 20px;
+  background: #1a1a1a;
+  color: white;
+}
+
+.pricing h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.pricing table {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #2d2d2d;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(255, 107, 0, 0.3);
+}
+
+.pricing th {
+  background: #ff6b00;
+  color: white;
+  padding: 20px;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.pricing td {
+  padding: 20px;
+  color: white;
+  border-bottom: 1px solid #3d3d3d;
+}
+
+.pricing tr:last-child td {
+  border-bottom: none;
+}
+
+.pricing tr:hover td {
+  background: #3d3d3d;
+}
+
+/* CTA FINALE */
+.cta-final {
+  padding: 100px 20px;
+  background: #ff6b00;
+  color: white;
+  text-align: center;
+}
+
+.cta-final h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.cta-final .cta {
+  background: #1a1a1a;
+  color: white;
+}
+
+.cta-final .cta:hover {
+  background: #2d2d2d;
+}
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .how-it-works h2,
+  .benefits h2,
+  .pricing h2,
+  .cta-final h2,
+  .app-showcase h2 {
+    font-size: 1.8rem;
+  }
+  
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  
+  .app-images {
+    grid-template-columns: 1fr;
+  }
+  
+  .pricing table {
+    font-size: 0.9rem;
+  }
+  
+  .pricing th,
+  .pricing td {
+    padding: 15px 10px;
+  }
+}
