@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 # Torno In Forma - Landing Page
 
@@ -61,3 +62,18 @@ public/                 # Asset statici
 */</section>
   )
 }
+=======
+# TornoInForma Landing Page
+
+Landing page ufficiale per il servizio di Coaching Online TornoInForma.
+
+## Struttura
+- `pages/index.html` → Pagina principale
+- `styles/style.css` → Stile personalizzato
+- `public/` → Immagini e risorse statiche
+
+## Deploy
+1. Collegare la repo a Vercel
+2. Settare il dominio `tornoinforma.it` in Vercel
+3. Fare deploy automatico dal branch `main`
+>>>>>>> 2fb8af08ea584c4bf25daa624c8331f18a3f6ed6

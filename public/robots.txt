@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tornoinforma.it/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /api/
+Disallow: /.next/
+Disallow: /admin/
+
+# Allow all crawlers to access the main content
+Allow: /
+Allow: /images/
+Allow: /favicon.ico
