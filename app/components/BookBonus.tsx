@@ -96,16 +96,10 @@ export default function BookBonus() {
 
             <div className="bg-primary/10 rounded-xl p-6 mb-8">
               <h4 className="font-semibold text-lg mb-3">Come ottenerlo:</h4>
-              <ul className="space-y-2 text-gray-700">
-                <li className="flex items-center gap-2">
-                  <div className="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">1</div>
-                  Piano Start: Versione digitale inclusa
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">2</div>
-                  Piani Pro/Elite: Libro cartaceo spedito a casa
-                </li>
-              </ul>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">📱</div>
+                <span className="text-gray-700">Tutti i piani: Versione digitale inclusa</span>
+              </div>
             </div>
 
             <div className="space-y-4">
@@ -115,7 +109,7 @@ export default function BookBonus() {
               </a>
               
               <p className="text-sm text-gray-500">
-                Il libro è incluso gratuitamente in tutti i nostri piani di trasformazione
+                Il libro digitale è incluso gratuitamente in tutti i nostri piani di trasformazione
               </p>
             </div>
           </motion.div>
