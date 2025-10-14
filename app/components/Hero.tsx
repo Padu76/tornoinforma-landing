@@ -47,7 +47,7 @@ export default function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           {/* Left Column - Content */}
           <motion.div 
@@ -109,73 +109,77 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative flex justify-center lg:justify-end"
           >
-            <div className="grid grid-cols-2 gap-6">
-              {/* App PT Image */}
+            <div className="relative w-full max-w-md">
+              {/* Layout a Z con spazi chiari */}
+              <div className="relative space-y-8">
+                
+                {/* Prima immagine - in alto a sinistra */}
+                <motion.div
+                  animate={{ y: [-8, 8, -8] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  className="relative z-30"
+                >
+                  <Image
+                    src="/app-pt.jpg"
+                    alt="Condividi il percorso con il tuo PT"
+                    width={180}
+                    height={320}
+                    className="rounded-2xl shadow-2xl"
+                  />
+                </motion.div>
+
+                {/* Seconda immagine - al centro, leggermente spostata a destra */}
+                <motion.div
+                  animate={{ y: [8, -8, 8] }}
+                  transition={{ duration: 4, repeat: Infinity, delay: 1.3 }}
+                  className="relative z-20 ml-16 -mt-16"
+                >
+                  <Image
+                    src="/app-progressi.jpg"
+                    alt="Monitora i tuoi progressi"
+                    width={180}
+                    height={320}
+                    className="rounded-2xl shadow-2xl"
+                  />
+                </motion.div>
+
+                {/* Terza immagine - in basso al centro */}
+                <motion.div
+                  animate={{ y: [-5, 5, -5] }}
+                  transition={{ duration: 4, repeat: Infinity, delay: 2.6 }}
+                  className="relative z-10 ml-8 -mt-20"
+                >
+                  <Image
+                    src="/app-workout.jpg"
+                    alt="Allenati con il tuo smartphone"
+                    width={180}
+                    height={320}
+                    className="rounded-2xl shadow-2xl"
+                  />
+                </motion.div>
+              </div>
+
+              {/* Floating Elements */}
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="relative"
+                className="absolute top-4 -left-4 bg-white rounded-xl p-4 shadow-lg z-40"
               >
-                <Image
-                  src="/app-pt.jpg"
-                  alt="Condividi il percorso con il tuo PT"
-                  width={200}
-                  height={400}
-                  className="rounded-2xl shadow-2xl"
-                />
+                <div className="text-2xl font-bold text-primary">500+</div>
+                <div className="text-sm text-gray-600">Clienti</div>
               </motion.div>
 
-              {/* App Progressi Image */}
               <motion.div
                 animate={{ y: [10, -10, 10] }}
                 transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-                className="relative mt-8"
+                className="absolute bottom-4 -right-4 bg-white rounded-xl p-4 shadow-lg z-40"
               >
-                <Image
-                  src="/app-progressi.jpg"
-                  alt="Monitora i tuoi progressi"
-                  width={200}
-                  height={400}
-                  className="rounded-2xl shadow-2xl"
-                />
+                <div className="text-2xl font-bold text-primary">12 Sett</div>
+                <div className="text-sm text-gray-600">Programma</div>
               </motion.div>
             </div>
-
-            {/* App Workout Image - Centered Bottom */}
-            <motion.div
-              animate={{ y: [-5, 5, -5] }}
-              transition={{ duration: 4, repeat: Infinity, delay: 2 }}
-              className="absolute -bottom-10 left-1/2 transform -translate-x-1/2"
-            >
-              <Image
-                src="/app-workout.jpg"
-                alt="Allenati con il tuo smartphone"
-                width={180}
-                height={360}
-                className="rounded-2xl shadow-2xl"
-              />
-            </motion.div>
-
-            {/* Floating Elements */}
-            <motion.div
-              animate={{ y: [-10, 10, -10] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="absolute top-4 -left-4 bg-white rounded-xl p-4 shadow-lg"
-            >
-              <div className="text-2xl font-bold text-primary">500+</div>
-              <div className="text-sm text-gray-600">Clienti</div>
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [10, -10, 10] }}
-              transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-              className="absolute bottom-8 -right-4 bg-white rounded-xl p-4 shadow-lg"
-            >
-              <div className="text-2xl font-bold text-primary">12 Sett</div>
-              <div className="text-sm text-gray-600">Programma</div>
-            </motion.div>
           </motion.div>
         </div>
       </div>

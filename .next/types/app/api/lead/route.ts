@@ -1,4 +1,4 @@
-// File: C:\Users\Asus\Desktop\tornoinforma-nextjs\app\api\lead\route.ts
+// File: E:\tornoinforma-landing\app\api\lead\route.ts
 import * as entry from '../../../../../app/api/lead/route.js'
 import type { NextRequest } from 'next/server.js'
 
