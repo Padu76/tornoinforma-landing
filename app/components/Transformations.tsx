@@ -94,12 +94,13 @@ export default function Transformations() {
               viewport={{ once: true }}
               className="group relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
             >
-              <div className="relative aspect-[4/5]">
+              <div className="relative w-full h-auto">
                 <Image
                   src={`/transformations/transformation-${transformation.id}.jpg`}
                   alt={`Trasformazione cliente ${transformation.id}`}
-                  fill
-                  className="object-cover"
+                  width={800}
+                  height={1000}
+                  className="w-full h-auto object-contain"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 
@@ -118,7 +119,7 @@ export default function Transformations() {
                 </div>
 
                 {/* Badge */}
-                <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                   {transformation.duration}
                 </div>
               </div>
