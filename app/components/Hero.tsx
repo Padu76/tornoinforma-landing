@@ -1,12 +1,34 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Star } from 'lucide-react'
 import Image from 'next/image'
 
+declare global {
+  interface Window {
+    emailjs: any;
+  }
+}
+
 export default function Hero() {
   const [email, setEmail] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [emailjsLoaded, setEmailjsLoaded] = useState(false)
+
+  useEffect(() => {
+    // Carica EmailJS tramite CDN
+    const script = document.createElement('script')
+    script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js'
+    script.onload = () => {
+      window.emailjs.init('ME0ru3KkNko0P6d2Y') // PUBLIC_KEY
+      setEmailjsLoaded(true)
+    }
+    document.head.appendChild(script)
+
+    return () => {
+      document.head.removeChild(script)
+    }
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -28,26 +50,26 @@ export default function Hero() {
       const result = await response.json()
 
       if (response.ok) {
-        // 2. Se il salvataggio è riuscito, invia email tramite EmailJS
-        try {
-          // Carica EmailJS dinamicamente
-          const emailjs = await import('@emailjs/browser')
-          
-          await emailjs.send(
-            'service_v6bw2m4', // SERVICE_ID
-            'template_i605n5c', // TEMPLATE_ID
-            {
-              user_email: email,
-              user_name: 'Caro/a',
-              to_email: email
-            },
-            'ME0ru3KkNko0P6d2Y' // PUBLIC_KEY
-          )
-          
-          console.log('Email sent successfully')
-        } catch (emailError) {
-          console.error('Email sending failed:', emailError)
-          // Non bloccare il flusso per errori email
+        // 2. Se il salvataggio è riuscito e EmailJS è caricato, invia email
+        if (emailjsLoaded && window.emailjs) {
+          try {
+            await window.emailjs.send(
+              'service_v6bw2m4', // SERVICE_ID
+              'template_i605n5c', // TEMPLATE_ID
+              {
+                user_email: email,
+                user_name: 'Caro/a',
+                to_email: email
+              }
+            )
+            
+            console.log('Email sent successfully')
+          } catch (emailError) {
+            console.error('Email sending failed:', emailError)
+            // Non bloccare il flusso per errori email
+          }
+        } else {
+          console.log('EmailJS not loaded, skipping email')
         }
 
         // Redirect alla pagina di successo
