@@ -16,17 +16,25 @@ export default function Hero() {
   const [emailjsLoaded, setEmailjsLoaded] = useState(false)
 
   useEffect(() => {
+    console.log('=== LOADING EMAILJS ===')
     // Carica EmailJS tramite CDN
     const script = document.createElement('script')
     script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js'
     script.onload = () => {
+      console.log('=== EMAILJS SCRIPT LOADED ===')
       window.emailjs.init('ME0ru3KkNko0P6d2Y') // PUBLIC_KEY
       setEmailjsLoaded(true)
+      console.log('=== EMAILJS INITIALIZED ===', window.emailjs)
+    }
+    script.onerror = (error) => {
+      console.error('=== EMAILJS SCRIPT ERROR ===', error)
     }
     document.head.appendChild(script)
 
     return () => {
-      document.head.removeChild(script)
+      if (document.head.contains(script)) {
+        document.head.removeChild(script)
+      }
     }
   }, [])
 
@@ -34,8 +42,14 @@ export default function Hero() {
     e.preventDefault()
     setIsSubmitting(true)
     
+    console.log('=== FORM SUBMIT START ===')
+    console.log('Email:', email)
+    console.log('EmailJS Loaded:', emailjsLoaded)
+    console.log('Window EmailJS:', window.emailjs)
+    
     try {
       // 1. Salva il lead su Supabase
+      console.log('=== CALLING SUPABASE API ===')
       const response = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -48,37 +62,54 @@ export default function Hero() {
       })
 
       const result = await response.json()
+      console.log('=== SUPABASE RESPONSE ===', response.status, result)
 
       if (response.ok) {
         // 2. Se il salvataggio è riuscito e EmailJS è caricato, invia email
         if (emailjsLoaded && window.emailjs) {
+          console.log('=== STARTING EMAILJS SEND ===')
+          
+          const emailParams = {
+            user_email: email,
+            user_name: 'Caro/a',
+            to_email: email
+          }
+          
+          console.log('EmailJS params:', emailParams)
+          console.log('Service ID: service_v6bw2m4')
+          console.log('Template ID: template_i605n5c')
+          
           try {
-            await window.emailjs.send(
+            const emailResult = await window.emailjs.send(
               'service_v6bw2m4', // SERVICE_ID
               'template_i605n5c', // TEMPLATE_ID
-              {
-                user_email: email,
-                user_name: 'Caro/a',
-                to_email: email
-              }
+              emailParams
             )
             
-            console.log('Email sent successfully')
+            console.log('=== EMAILJS SUCCESS ===', emailResult)
           } catch (emailError) {
-            console.error('Email sending failed:', emailError)
+            console.error('=== EMAILJS ERROR ===', emailError)
+            console.error('Error details:', emailError.status, emailError.text)
             // Non bloccare il flusso per errori email
           }
         } else {
-          console.log('EmailJS not loaded, skipping email')
+          console.log('=== EMAILJS NOT READY ===')
+          console.log('EmailJS Loaded:', emailjsLoaded)
+          console.log('Window EmailJS exists:', !!window.emailjs)
         }
 
-        // Redirect alla pagina di successo
-        window.location.href = '/?success=1'
+        // Aspetta 5 secondi prima del redirect per vedere i log
+        console.log('=== WAITING 5 SECONDS BEFORE REDIRECT ===')
+        setTimeout(() => {
+          window.location.href = '/?success=1'
+        }, 5000)
+        
       } else {
+        console.error('=== SUPABASE ERROR ===', result)
         alert('Errore durante il salvataggio. Riprova.')
       }
     } catch (error) {
-      console.error('Form submission error:', error)
+      console.error('=== FORM SUBMISSION ERROR ===', error)
       alert('Errore di connessione. Riprova.')
     } finally {
       setIsSubmitting(false)
