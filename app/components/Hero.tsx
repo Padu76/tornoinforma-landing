@@ -77,12 +77,12 @@ export default function Hero() {
           
           console.log('EmailJS params:', emailParams)
           console.log('Service ID: service_v6bw2m4')
-          console.log('Template ID: template_i605n5c')
+          console.log('Template ID: template_sd61sad')
           
           try {
             const emailResult = await window.emailjs.send(
               'service_v6bw2m4', // SERVICE_ID
-              'template_i605n5c', // TEMPLATE_ID
+              'template_sd61sad', // TEMPLATE_ID CORRETTO
               emailParams
             )
             
