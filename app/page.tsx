@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import QuizSection from './components/QuizSection'
+import Transformations from './components/Transformations'
 import HowItWorks from './components/HowItWorks'
 import Benefits from './components/Benefits'
 import AppDownload from './components/AppDownload'
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <QuizSection />
+      <Transformations />
       <HowItWorks />
       <Benefits />
       <AppDownload />
