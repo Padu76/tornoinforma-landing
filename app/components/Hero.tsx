@@ -1,28 +1,65 @@
 'use client'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Play, Star } from 'lucide-react'
+import { ArrowRight, Star } from 'lucide-react'
 import Image from 'next/image'
 
 export default function Hero() {
   const [email, setEmail] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsSubmitting(true)
     
-    const response = await fetch('/api/lead', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email,
-        source: 'hero_cta',
-        utm: typeof window !== 'undefined' ? 
-          JSON.parse(localStorage.getItem('utm') || '{}') : {}
+    try {
+      // 1. Salva il lead su Supabase
+      const response = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          source: 'hero_cta',
+          utm: typeof window !== 'undefined' ? 
+            JSON.parse(localStorage.getItem('utm') || '{}') : {}
+        })
       })
-    })
 
-    if (response.ok) {
-      window.location.href = '/?success=1'
+      const result = await response.json()
+
+      if (response.ok) {
+        // 2. Se il salvataggio è riuscito, invia email tramite EmailJS
+        try {
+          // Carica EmailJS dinamicamente
+          const emailjs = await import('@emailjs/browser')
+          
+          await emailjs.send(
+            'service_v6bw2m4', // SERVICE_ID
+            'template_i605n5c', // TEMPLATE_ID
+            {
+              user_email: email,
+              user_name: 'Caro/a',
+              to_email: email
+            },
+            'ME0ru3KkNko0P6d2Y' // PUBLIC_KEY
+          )
+          
+          console.log('Email sent successfully')
+        } catch (emailError) {
+          console.error('Email sending failed:', emailError)
+          // Non bloccare il flusso per errori email
+        }
+
+        // Redirect alla pagina di successo
+        window.location.href = '/?success=1'
+      } else {
+        alert('Errore durante il salvataggio. Riprova.')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      alert('Errore di connessione. Riprova.')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -47,7 +84,7 @@ export default function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           {/* Left Column - Content */}
           <motion.div 
@@ -83,9 +120,14 @@ export default function Hero() {
                 placeholder="La tua email per iniziare"
                 className="flex-1 px-6 py-4 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent"
                 required
+                disabled={isSubmitting}
               />
-              <button type="submit" className="btn-primary flex items-center justify-center gap-2">
-                Ricevi l'Anteprima Gratis
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="btn-primary flex items-center justify-center gap-2 disabled:opacity-50"
+              >
+                {isSubmitting ? 'Invio...' : 'Ricevi l\'Anteprima Gratis'}
                 <ArrowRight className="w-5 h-5" />
               </button>
             </form>
@@ -103,7 +145,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Column - App Screenshots Horizontal */}
+          {/* Right Column - App Screenshots */}
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
