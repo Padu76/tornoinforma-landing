@@ -22,33 +22,63 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false, error: 'Invalid email' }, { status: 400 })
     }
 
+    // Salva su Supabase
     const { data, error } = await supabase
       .from('leads')
       .insert([payload])
       .select()
 
+    let isNewLead = true
+
     if (error) {
-      // Se l'errore è di email duplicata, restituisci successo comunque
+      // Se l'errore è di email duplicata, continua comunque con l'invio email
       if (error.code === '23505' && error.message.includes('duplicate key')) {
-        console.log('Email already exists, returning success:', payload.email)
-        return NextResponse.json({ 
-          ok: true, 
-          message: 'Thank you! We have your information.', 
-          duplicate: true 
-        })
+        console.log('Email already exists:', payload.email)
+        isNewLead = false
+      } else {
+        // Altri errori Supabase
+        console.error('Supabase error:', error)
+        return NextResponse.json({ ok: false, error: error.message }, { status: 500 })
       }
-      
-      // Altri errori Supabase
-      console.error('Supabase error:', error)
-      return NextResponse.json({ ok: false, error: error.message }, { status: 500 })
+    } else {
+      console.log('Lead saved successfully:', data)
     }
 
-    console.log('Lead saved successfully:', data)
+    // Invia email tramite EmailJS
+    try {
+      const emailData = {
+        service_id: process.env.EMAILJS_SERVICE_ID,
+        template_id: process.env.EMAILJS_TEMPLATE_ID,
+        user_id: process.env.EMAILJS_PUBLIC_KEY,
+        template_params: {
+          user_email: payload.email,
+          user_name: payload.first_name || 'Caro/a',
+          to_email: payload.email
+        }
+      }
+
+      const emailResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailData)
+      })
+
+      if (emailResponse.ok) {
+        console.log('Email sent successfully to:', payload.email)
+      } else {
+        console.error('EmailJS error:', emailResponse.status, await emailResponse.text())
+      }
+    } catch (emailError) {
+      console.error('Email sending failed:', emailError)
+      // Non bloccare la response per errori email
+    }
+
     return NextResponse.json({ 
       ok: true, 
-      message: 'Lead saved successfully', 
-      data,
-      duplicate: false 
+      message: isNewLead ? 'Lead saved and email sent' : 'Email sent to existing lead',
+      duplicate: !isNewLead 
     })
     
   } catch (error) {
