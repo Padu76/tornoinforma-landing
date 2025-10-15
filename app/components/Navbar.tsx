@@ -6,6 +6,10 @@ import Image from 'next/image'
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <nav className="fixed top-0 w-full z-50 glass-effect">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,7 +30,7 @@ export default function Navbar() {
               <a href="#piani" className="hover:text-primary transition-colors">Piani</a>
               <a href="#libro" className="hover:text-primary transition-colors">Libro Gratis</a>
               <a href="#faq" className="hover:text-primary transition-colors">FAQ</a>
-              <a href="#inizia" className="btn-primary ml-4">Inizia Ora</a>
+              <button onClick={scrollToTop} className="btn-primary ml-4">Inizia Ora</button>
             </div>
           </div>
           
@@ -48,7 +52,7 @@ export default function Navbar() {
             <a href="#piani" className="block px-3 py-2 hover:text-primary">Piani</a>
             <a href="#libro" className="block px-3 py-2 hover:text-primary">Libro Gratis</a>
             <a href="#faq" className="block px-3 py-2 hover:text-primary">FAQ</a>
-            <a href="#inizia" className="block btn-primary m-3 text-center">Inizia Ora</a>
+            <button onClick={scrollToTop} className="block btn-primary m-3 text-center w-auto">Inizia Ora</button>
           </div>
         </div>
       )}
