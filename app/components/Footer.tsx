@@ -54,8 +54,8 @@ export default function Footer() {
               <li><a href="#piani" className="text-gray-300 hover:text-primary transition-colors">Piani</a></li>
               <li><a href="#libro" className="text-gray-300 hover:text-primary transition-colors">Libro Gratis</a></li>
               <li><a href="#faq" className="text-gray-300 hover:text-primary transition-colors">FAQ</a></li>
-              <li><a href="/privacy" className="text-gray-300 hover:text-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms" className="text-gray-300 hover:text-primary transition-colors">Termini di Servizio</a></li>
+              <li><a href="/privacy-policy" className="text-gray-300 hover:text-primary transition-colors">Privacy Policy</a></li>
+              <li><a href="/cookie-policy" className="text-gray-300 hover:text-primary transition-colors">Cookie Policy</a></li>
             </ul>
           </motion.div>
 
@@ -96,6 +96,11 @@ export default function Footer() {
           className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400"
         >
           <p>&copy; 2024 Torno in Forma. Tutti i diritti riservati.</p>
+          <p className="mt-2 text-sm">
+            <a href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</a>
+            {' • '}
+            <a href="/cookie-policy" className="hover:text-primary transition-colors">Cookie Policy</a>
+          </p>
         </motion.div>
       </div>
     </footer>

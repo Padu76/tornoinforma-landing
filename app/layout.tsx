@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter, Montserrat } from 'next/font/google'
 import './globals.css'
+import '../styles/cookieconsent-custom.css'
+import CookieConsent from './components/CookieConsent'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -39,6 +41,7 @@ export default function RootLayout({
     <html lang="it" className={`${inter.variable} ${montserrat.variable}`}>
       <body className="font-sans antialiased">
         {children}
+        <CookieConsent />
       </body>
     </html>
   )
