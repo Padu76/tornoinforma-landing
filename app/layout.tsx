@@ -1,8 +1,10 @@
+// app/layout.tsx
 import type { Metadata } from 'next'
 import { Inter, Montserrat } from 'next/font/google'
 import './globals.css'
 import '../styles/cookieconsent-custom.css'
 import CookieConsent from './components/CookieConsent'
+import Script from 'next/script'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -39,6 +41,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it" className={`${inter.variable} ${montserrat.variable}`}>
+      <head>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-J1UR8QP9VL"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-J1UR8QP9VL');
+          `}
+        </Script>
+      </head>
       <body className="font-sans antialiased">
         {children}
         <CookieConsent />
