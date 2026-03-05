@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS corso_acquisti (
   email TEXT NOT NULL,
   nome TEXT,
   paypal_order_id TEXT UNIQUE,
-  importo NUMERIC(10,2) DEFAULT 127.00,
+  importo NUMERIC(10,2) DEFAULT 249.00,
   stato TEXT DEFAULT 'completato',
   acquistato_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );

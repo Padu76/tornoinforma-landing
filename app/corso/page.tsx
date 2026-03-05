@@ -69,7 +69,7 @@ export default function CorsoPage() {
       const returnUrl = encodeURIComponent(`${window.location.origin}/corso/successo?email=${encodeURIComponent(email)}&nome=${encodeURIComponent(nome)}`)
       const cancelUrl = encodeURIComponent(`${window.location.origin}/corso?cancelled=1`)
 
-      window.location.href = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=${process.env.NEXT_PUBLIC_PAYPAL_EMAIL}&item_name=Torno+in+Forma+Corso+Completo&amount=127.00&currency_code=EUR&return=${returnUrl}&cancel_return=${cancelUrl}&no_note=1&no_shipping=1`
+      window.location.href = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=${process.env.NEXT_PUBLIC_PAYPAL_EMAIL}&item_name=Torno+in+Forma+Corso+Completo&amount=249.00&currency_code=EUR&return=${returnUrl}&cancel_return=${cancelUrl}&no_note=1&no_shipping=1`
     } catch {
       setError('Errore nel avvio del pagamento. Riprova.')
       setLoading(false)
@@ -85,7 +85,7 @@ export default function CorsoPage() {
           <img src="/logo.svg" alt="Torno in Forma" className="h-8" />
         </div>
         <a href="#acquista" className="bg-primary text-white px-5 py-2 rounded-lg font-semibold text-sm hover:bg-orange-600 transition-colors">
-          Acquista €127
+          Acquista €249
         </a>
       </nav>
 
@@ -113,7 +113,7 @@ export default function CorsoPage() {
           </div>
           <a href="#acquista"
             className="inline-block bg-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-orange-600 transition-all shadow-lg shadow-primary/30 hover:shadow-primary/50">
-            Inizia Adesso — €127
+            Inizia Adesso — €249
           </a>
           <p className="text-gray-500 text-sm mt-3">Pagamento sicuro via PayPal. Accesso immediato al Modulo 1.</p>
         </div>
@@ -223,7 +223,7 @@ export default function CorsoPage() {
           <div className="bg-black rounded-2xl overflow-hidden shadow-2xl">
             <div className="bg-primary p-6 text-white text-center">
               <p className="text-primary-100 text-sm font-semibold mb-1 opacity-80">ACCESSO COMPLETO</p>
-              <div className="text-5xl font-black mb-1">€127</div>
+              <div className="text-5xl font-black mb-1">€249</div>
               <p className="text-sm opacity-80">pagamento unico • accesso a vita</p>
             </div>
             <div className="p-8">
@@ -326,7 +326,7 @@ export default function CorsoPage() {
           <p className="text-gray-400 mb-8">Il Modulo 1 ti aspetta. Ci vogliono 35 minuti per completare la prima lezione.</p>
           <a href="#acquista"
             className="inline-block bg-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-orange-600 transition-all">
-            Acquista il Corso — €127
+            Acquista il Corso — €249
           </a>
         </div>
       </section>

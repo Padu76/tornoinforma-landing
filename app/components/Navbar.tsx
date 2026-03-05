@@ -1,3 +1,4 @@
+// app/components/Navbar.tsx
 'use client'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
@@ -28,6 +29,9 @@ export default function Navbar() {
             <div className="ml-10 flex items-baseline space-x-4">
               <a href="#come-funziona" className="hover:text-primary transition-colors">Come funziona</a>
               <a href="#piani" className="hover:text-primary transition-colors">Piani</a>
+              <a href="/corso" className="hover:text-primary transition-colors font-semibold text-primary">
+                Corso Completo
+              </a>
               <a href="#libro" className="hover:text-primary transition-colors">Libro Gratis</a>
               <a href="#faq" className="hover:text-primary transition-colors">FAQ</a>
               <button onClick={scrollToTop} className="btn-primary ml-4">Inizia Ora</button>
@@ -48,11 +52,12 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-white border-t">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            <a href="#come-funziona" className="block px-3 py-2 hover:text-primary">Come funziona</a>
-            <a href="#piani" className="block px-3 py-2 hover:text-primary">Piani</a>
-            <a href="#libro" className="block px-3 py-2 hover:text-primary">Libro Gratis</a>
-            <a href="#faq" className="block px-3 py-2 hover:text-primary">FAQ</a>
-            <button onClick={scrollToTop} className="block btn-primary m-3 text-center w-auto">Inizia Ora</button>
+            <a href="#come-funziona" className="block px-3 py-2 hover:text-primary" onClick={() => setIsOpen(false)}>Come funziona</a>
+            <a href="#piani" className="block px-3 py-2 hover:text-primary" onClick={() => setIsOpen(false)}>Piani</a>
+            <a href="/corso" className="block px-3 py-2 font-semibold text-primary" onClick={() => setIsOpen(false)}>Corso Completo</a>
+            <a href="#libro" className="block px-3 py-2 hover:text-primary" onClick={() => setIsOpen(false)}>Libro Gratis</a>
+            <a href="#faq" className="block px-3 py-2 hover:text-primary" onClick={() => setIsOpen(false)}>FAQ</a>
+            <button onClick={() => { scrollToTop(); setIsOpen(false) }} className="block btn-primary m-3 text-center w-auto">Inizia Ora</button>
           </div>
         </div>
       )}

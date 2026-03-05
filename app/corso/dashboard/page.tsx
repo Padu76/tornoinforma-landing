@@ -132,8 +132,7 @@ function DashboardContent() {
             </div>
           </div>
           <a
-            href="/corso/pdf/INDICE_CORSO_TORNO_IN_FORMA.pdf"
-            download
+            href={`/api/corso/pdf?token=${token}&file=indice`}
             className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
             <Download size={14} /> Scarica
           </a>
@@ -185,8 +184,7 @@ function DashboardContent() {
                       <p className="text-xs text-gray-400">Contiene tutte le lezioni e i worksheet del modulo</p>
                     </div>
                     <a
-                      href={`/corso/pdf/${mod.lessons[0].pdfFile}`}
-                      download
+                      href={`/api/corso/pdf?token=${token}&file=modulo${mod.num}`}
                       className="flex items-center gap-2 bg-primary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
                       <Download size={14} /> Scarica PDF
                     </a>

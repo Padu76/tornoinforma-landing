@@ -1,3 +1,4 @@
+// app/page.tsx
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import QuizSection from './components/QuizSection'
@@ -5,6 +6,7 @@ import Transformations from './components/Transformations'
 import HowItWorks from './components/HowItWorks'
 import Benefits from './components/Benefits'
 import AppDownload from './components/AppDownload'
+import CorsoPromo from './components/CorsoPromo'
 import Plans from './components/Plans'
 import BookBonus from './components/BookBonus'
 import Testimonials from './components/Testimonials'
@@ -22,6 +24,7 @@ export default function HomePage() {
       <HowItWorks />
       <Benefits />
       <AppDownload />
+      <CorsoPromo />
       <Plans />
       <BookBonus />
       <Testimonials />
