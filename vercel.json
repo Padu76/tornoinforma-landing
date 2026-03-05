@@ -1,3 +1,44 @@
 {
-  "trailingSlash": false
+  "crons": [
+    {
+      "path": "/api/cron/crawl-veneto",
+      "schedule": "0 2 * * *"
+    },
+    {
+      "path": "/api/cron/crawl-trento",
+      "schedule": "0 3 * * *"
+    },
+    {
+      "path": "/api/cron/crawl-bolzano",
+      "schedule": "0 4 * * *"
+    },
+    {
+      "path": "/api/cron/crawl-cciaa-verona",
+      "schedule": "0 5 * * *"
+    },
+    {
+      "path": "/api/cron/crawl-cciaa-padova",
+      "schedule": "0 6 * * *"
+    },
+    {
+      "path": "/api/cron/crawl-cciaa-vicenza",
+      "schedule": "0 7 * * *"
+    },
+    {
+      "path": "/api/cron/crawl-cciaa-treviso",
+      "schedule": "0 8 * * *"
+    },
+    {
+      "path": "/api/cron/crawl-cciaa-venezia",
+      "schedule": "0 9 * * *"
+    },
+    {
+      "path": "/api/cron/crawl-europa",
+      "schedule": "0 10 * * *"
+    },
+    {
+      "path": "/api/cron/cleanup-expired",
+      "schedule": "0 1 * * *"
+    }
+  ]
 }

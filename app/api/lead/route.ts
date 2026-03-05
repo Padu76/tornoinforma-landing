@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
 
     // Prova a salvare su Supabase
     const { data, error } = await supabase
-      .from('leads')
+      .from('ti_leads')
       .insert([payload])
       .select()
 

@@ -1,0 +1,61 @@
+# EMAILJS — Template da creare per il corso
+
+Vai su emailjs.com → Email Templates → Create New Template
+Nome template: corso_accesso
+Template ID: template_corso_accesso (puoi sceglierlo)
+
+──────────────────────────────────────────────────────
+SOGGETTO:
+Il tuo accesso al Corso Torno in Forma 🔓
+
+──────────────────────────────────────────────────────
+CORPO EMAIL (HTML):
+
+<!DOCTYPE html>
+<html>
+<body style="background:#111; color:#fff; font-family:sans-serif; padding:40px 20px; margin:0;">
+  <div style="max-width:500px; margin:0 auto;">
+    
+    <img src="https://www.tornoinforma.it/logo.svg" alt="Torno in Forma" style="height:40px; margin-bottom:32px;" />
+    
+    <h1 style="font-size:24px; font-weight:900; margin-bottom:8px;">
+      Ciao{{to_name}}, il tuo accesso è pronto! 🎉
+    </h1>
+    
+    <p style="color:#aaa; font-size:15px; line-height:1.6; margin-bottom:24px;">
+      Clicca il pulsante qui sotto per accedere al tuo corso.<br/>
+      Il link è valido per <strong style="color:#fff;">24 ore</strong>.
+    </p>
+    
+    <a href="{{dashboard_url}}" 
+       style="display:inline-block; background:#E8450A; color:#fff; padding:16px 32px; border-radius:12px; font-weight:700; font-size:16px; text-decoration:none; margin-bottom:24px;">
+      Accedi al Corso →
+    </a>
+    
+    <p style="color:#555; font-size:12px; line-height:1.5;">
+      Se il pulsante non funziona, copia questo link nel browser:<br/>
+      <a href="{{dashboard_url}}" style="color:#E8450A; word-break:break-all;">{{dashboard_url}}</a>
+    </p>
+    
+    <hr style="border:none; border-top:1px solid #333; margin:32px 0;" />
+    
+    <p style="color:#444; font-size:12px;">
+      Questo link ti porta direttamente alla dashboard del corso.<br/>
+      Puoi richiedere un nuovo link in qualsiasi momento su tornoinforma.it/corso/accesso<br/><br/>
+      <a href="https://www.tornoinforma.it" style="color:#666;">tornoinforma.it</a>
+    </p>
+    
+  </div>
+</body>
+</html>
+
+──────────────────────────────────────────────────────
+VARIABILI USATE NEL TEMPLATE:
+- {{to_name}}       — nome del cliente
+- {{to_email}}      — email destinatario (imposta come "To Email" in EmailJS)
+- {{dashboard_url}} — link diretto alla dashboard con token
+
+SETTINGS EMAILJS:
+- To Email: {{to_email}}
+- Reply To: info@tornoinforma.it
+- From Name: Torno in Forma

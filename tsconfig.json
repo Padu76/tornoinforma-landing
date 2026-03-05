@@ -1,3 +1,4 @@
+// tsconfig.json
 {
   "compilerOptions": {
     "lib": [
@@ -16,6 +17,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
     "plugins": [
       {
         "name": "next"

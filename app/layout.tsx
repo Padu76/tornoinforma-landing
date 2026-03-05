@@ -17,6 +17,7 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.tornoinforma.it'),
   title: 'Torno in Forma | Trasformazione Fitness Online',
   description: 'Allenamento personalizzato, piano alimentare e coaching online. Torna in forma ovunque ti trovi con il metodo Torno in Forma.',
   keywords: 'fitness online, personal trainer, dieta personalizzata, allenamento casa, coaching nutrizionale',
