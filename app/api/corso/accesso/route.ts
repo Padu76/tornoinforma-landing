@@ -9,22 +9,50 @@ function generateToken(): string {
 
 async function sendMagicLink(email: string, token: string) {
   const dashboardUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/corso/dashboard?token=${token}`
+  const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'andrea.padoan@gmail.com'
 
-  await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+  const html = `<!DOCTYPE html>
+<html>
+<body style="background:#111111;color:#ffffff;font-family:sans-serif;padding:40px 20px;margin:0;">
+  <div style="max-width:520px;margin:0 auto;">
+    <div style="margin-bottom:32px;">
+      <span style="font-size:22px;font-weight:900;color:#E8450A;">Torno in Forma</span>
+    </div>
+    <h1 style="font-size:24px;font-weight:900;margin-bottom:8px;">Il tuo link di accesso</h1>
+    <p style="color:#aaaaaa;font-size:15px;line-height:1.6;margin-bottom:28px;">
+      Clicca il pulsante per accedere alla tua area corso.<br/>
+      Il link e valido per <strong style="color:#ffffff;">24 ore</strong>.
+    </p>
+    <a href="${dashboardUrl}" style="display:inline-block;background:#E8450A;color:#ffffff;padding:16px 36px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;margin-bottom:28px;">
+      Accedi al Corso →
+    </a>
+    <p style="color:#555555;font-size:12px;line-height:1.6;">
+      <a href="${dashboardUrl}" style="color:#E8450A;word-break:break-all;">${dashboardUrl}</a>
+    </p>
+    <hr style="border:none;border-top:1px solid #333333;margin:28px 0;"/>
+    <p style="color:#444444;font-size:11px;">Torno in Forma — tornoinforma.it</p>
+  </div>
+</body>
+</html>`
+
+  const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify({
-      service_id: process.env.EMAILJS_SERVICE_ID,
-      template_id: process.env.EMAILJS_CORSO_TEMPLATE_ID,
-      user_id: process.env.EMAILJS_PUBLIC_KEY,
-      template_params: {
-        to_email: email,
-        to_name: '',
-        dashboard_url: dashboardUrl,
-        subject: 'Il tuo link di accesso al corso',
-      },
+      from: `Torno in Forma <${FROM_EMAIL}>`,
+      to: [email],
+      subject: '🔑 Link di accesso al tuo corso',
+      html,
     }),
   })
+
+  if (!res.ok) {
+    const err = await res.text()
+    throw new Error(`Resend error: ${err}`)
+  }
 }
 
 // POST — richiesta magic link
@@ -38,7 +66,6 @@ export async function POST(req: NextRequest) {
 
     const supabase = createServerClient()
 
-    // Verifica che l'email abbia acquistato
     const { data: acquisto } = await supabase
       .from('corso_acquisti')
       .select('email, nome')
@@ -53,7 +80,6 @@ export async function POST(req: NextRequest) {
       }, { status: 404 })
     }
 
-    // Genera nuovo token
     const token = generateToken()
     await supabase.from('corso_sessioni').insert({
       email: email.toLowerCase(),
@@ -61,7 +87,6 @@ export async function POST(req: NextRequest) {
       expires_at: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
     })
 
-    // Invia email
     await sendMagicLink(email.toLowerCase(), token)
 
     return NextResponse.json({ ok: true })
@@ -72,7 +97,7 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// GET — valida token e restituisce sessione
+// GET — valida token
 export async function GET(req: NextRequest) {
   try {
     const token = req.nextUrl.searchParams.get('token')
@@ -83,7 +108,6 @@ export async function GET(req: NextRequest) {
 
     const supabase = createServerClient()
 
-    // Cerca il token
     const { data: sessione } = await supabase
       .from('corso_sessioni')
       .select('email, usato, expires_at')
@@ -98,10 +122,8 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ ok: false, error: 'Link scaduto. Richiedine uno nuovo.' }, { status: 401 })
     }
 
-    // Marca token come usato (ma non lo invalida — utente può restare loggato)
     await supabase.from('corso_sessioni').update({ usato: true }).eq('token', token)
 
-    // Recupera dati acquisto
     const { data: acquisto } = await supabase
       .from('corso_acquisti')
       .select('email, nome, acquistato_at')
