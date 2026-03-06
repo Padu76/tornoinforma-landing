@@ -413,8 +413,10 @@ export default function HomePage() {
           width: 100%;
           aspect-ratio: 3/4;
           object-fit: cover;
+          object-position: top center;
           border-radius: 2px;
           filter: grayscale(.3) contrast(1.1);
+          display: block;
         }
         .about-img-badge {
           position: absolute;
@@ -471,6 +473,32 @@ export default function HomePage() {
           letter-spacing: .08em;
           text-transform: uppercase;
           color: var(--muted);
+        }
+
+        .about-profile-link {
+          display: inline-flex;
+          align-items: center;
+          gap: .6rem;
+          margin-top: 1.8rem;
+          padding: .7rem 1.2rem;
+          border: 1px solid var(--border);
+          border-radius: 2px;
+          text-decoration: none;
+          color: var(--muted);
+          font-size: .82rem;
+          font-weight: 600;
+          letter-spacing: .08em;
+          text-transform: uppercase;
+          transition: border-color .2s, color .2s;
+          background: rgba(255,255,255,.02);
+        }
+        .about-profile-link:hover {
+          border-color: var(--orange);
+          color: var(--white);
+        }
+        .about-profile-link span {
+          color: var(--orange);
+          font-size: 1rem;
         }
 
         @media (max-width: 768px) {
@@ -1102,7 +1130,8 @@ export default function HomePage() {
       <section className="about" id="chi-sono">
         <div className="about-inner">
           <div className="about-img-wrap">
-            <img src="/app-pt.jpg" alt="Andrea Padoan Personal Trainer" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/app-pt.jpg" alt="Andrea Padoan Personal Trainer Verona" />
             <div className="about-img-badge">
               <strong>12</strong>
               <span>Anni di<br />Esperienza</span>
@@ -1129,6 +1158,14 @@ export default function HomePage() {
               <span className="about-pill">Fondatore Tribù Studio Verona</span>
               <span className="about-pill">Coaching Online</span>
             </div>
+            <a
+              href="https://www.personaltrainerverona.it"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="about-profile-link"
+            >
+              <span>→</span> Scopri il mio profilo completo
+            </a>
           </div>
         </div>
       </section>
@@ -1406,6 +1443,7 @@ export default function HomePage() {
             <li><a href="/corso">Il Corso</a></li>
             <li><a href="/privacy-policy">Privacy</a></li>
             <li><a href="/cookie-policy">Cookie</a></li>
+            <li><a href="https://www.personaltrainerverona.it" target="_blank" rel="noopener noreferrer">Sito PT Verona</a></li>
           </ul>
           <div className="footer-copy">
             © {new Date().getFullYear()} Torno in Forma · Andrea Padoan Personal Trainer · P.IVA 04058990237
