@@ -1105,14 +1105,19 @@ export default function HomePage() {
           <p className="hero-sub">
             Ti seguo a distanza con un piano di allenamento e alimentazione costruito su di te. Ovunque tu sia, qualunque sia il tuo punto di partenza.
           </p>
-          <div className="hero-actions">
+        <div className="hero-actions">
             <a href={waLink("Ciao Andrea! Ho visto il sito tornoinforma.it e vorrei iniziare il percorso di coaching.")}
                className="btn-primary">
               Inizia il Percorso →
             </a>
-            <a href="#corso" className="btn-ghost">
+            <button className="btn-ghost" onClick={() => {
+              setActiveTab("corso");
+              setTimeout(() => {
+                document.getElementById("percorsi")?.scrollIntoView({ behavior: "smooth" });
+              }, 50);
+            }}>
               Scopri il Corso
-            </a>
+            </button>
           </div>
           <div className="hero-stats">
             <div className="hero-stat">
