@@ -179,7 +179,7 @@ export default function HomePage() {
         .hero-bg {
           position: absolute;
           inset: 0;
-          background: url('/hero-bg.jpg') center/cover no-repeat;
+          background: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1920&q=80&fit=crop') center/cover no-repeat;
           filter: brightness(.28) saturate(.6);
           transform: scale(1.03);
           animation: heroZoom 12s ease-out forwards;
