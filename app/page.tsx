@@ -712,7 +712,7 @@ export default function HomePage() {
         .process-steps::before {
           content: '';
           position: absolute;
-          top: 2.2rem;
+          top: 6.5rem;
           left: calc(12.5% + 1.5rem);
           right: calc(12.5% + 1.5rem);
           height: 1px;
@@ -722,6 +722,15 @@ export default function HomePage() {
         .process-step {
           padding: 0 1.5rem 2rem;
           text-align: center;
+        }
+        .step-img {
+          width: 100%;
+          aspect-ratio: 4/3;
+          object-fit: cover;
+          border-radius: 2px;
+          margin-bottom: 1.5rem;
+          filter: grayscale(.3) contrast(1.1);
+          display: block;
         }
         .step-num {
           width: 44px; height: 44px;
@@ -1298,12 +1307,30 @@ export default function HomePage() {
           <h2 className="section-title">Come funziona<br />il coaching a distanza.</h2>
           <div className="process-steps">
             {[
-              { n: "1", t: "Valutazione", d: "Compili un questionario dettagliato su obiettivi, disponibilità, livello attuale e preferenze alimentari." },
-              { n: "2", t: "Piano su Misura", d: "Ricevi il tuo programma di allenamento e piano alimentare personalizzato entro 48 ore." },
-              { n: "3", t: "Ti Alleni", d: "Segui il piano dove vuoi — casa, palestra o outdoor. Con le app integrate hai tutto a portata di mano." },
-              { n: "4", t: "Monitori e Cresci", d: "Mi aggiorni regolarmente. Revisiono, adatto, motivo. Tu vedi i risultati." },
+              {
+                n: "1", t: "Valutazione",
+                d: "Compili un questionario dettagliato su obiettivi, disponibilità, livello attuale e preferenze alimentari.",
+                img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80&fit=crop"
+              },
+              {
+                n: "2", t: "Piano su Misura",
+                d: "Ricevi il tuo programma di allenamento e piano alimentare personalizzato entro 48 ore.",
+                img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80&fit=crop"
+              },
+              {
+                n: "3", t: "Ti Alleni",
+                d: "Segui il piano dove vuoi — casa, palestra o outdoor. Con le app integrate hai tutto a portata di mano.",
+                img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80&fit=crop"
+              },
+              {
+                n: "4", t: "Monitori e Cresci",
+                d: "Mi aggiorni regolarmente. Revisiono, adatto, motivo. Tu vedi i risultati.",
+                img: "https://images.unsplash.com/photo-1548690312-e3b507d8c110?w=600&q=80&fit=crop"
+              },
             ].map(s => (
               <div className="process-step" key={s.n}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="step-img" src={s.img} alt={s.t} />
                 <div className="step-num">{s.n}</div>
                 <div className="step-title">{s.t}</div>
                 <p className="step-desc">{s.d}</p>
