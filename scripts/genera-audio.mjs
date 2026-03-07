@@ -1,17 +1,29 @@
 // scripts/genera-audio.mjs
 // E:\tornoinforma-landing\scripts\genera-audio.mjs
 //
+// Richiede le variabili d'ambiente dal file .env.local:
+//   ELEVENLABS_API_KEY=sk_...
+//   ELEVENLABS_VOICE_ID=PSp7S6ST9fDNXDwEzX0m   (opzionale, ha default)
+//   NEXT_PUBLIC_SUPABASE_URL=https://...
+//   SUPABASE_SERVICE_ROLE_KEY=eyJ...
+//
 // Esegui con:
-//   node scripts/genera-audio.mjs
+//   node -r dotenv/config scripts/genera-audio.mjs
+//   oppure imposta le env manualmente prima di lanciare
 
 import { createClient } from '@supabase/supabase-js'
 
-const ELEVENLABS_API_KEY  = 'sk_2dd1ca359cb6989a851fabcfe710aa5b7cd18b29d9dded72'
-const ELEVENLABS_VOICE_ID = 'PSp7S6ST9fDNXDwEzX0m'
-const SUPABASE_URL        = 'https://vzwplpljxdqmdejvzwuw.supabase.co'
-const SUPABASE_KEY        = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ6d3BscGxqeGRxbWRlanZ6d3V3Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MTQ0MjY0MiwiZXhwIjoyMDg3MDE4NjQyfQ.yuwJOxh5jUcPP-nUNcI2_ewLXkzOoF1hmI4AH6UO4OA'
+const ELEVENLABS_API_KEY  = process.env.ELEVENLABS_API_KEY
+const ELEVENLABS_VOICE_ID = process.env.ELEVENLABS_VOICE_ID || 'PSp7S6ST9fDNXDwEzX0m'
+const SUPABASE_URL        = process.env.NEXT_PUBLIC_SUPABASE_URL
+const SUPABASE_KEY        = process.env.SUPABASE_SERVICE_ROLE_KEY
 const BUCKET              = 'corso-audio'
 const DELAY_MS            = 1200
+
+// Validazione variabili d'ambiente
+;['ELEVENLABS_API_KEY', 'NEXT_PUBLIC_SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY'].forEach(k => {
+  if (!process.env[k]) { console.error(`❌ Manca la variabile d'ambiente: ${k}`); process.exit(1) }
+})
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
 
