@@ -56,6 +56,7 @@ export default function RootLayout({
             gtag('config', 'G-J1UR8QP9VL');
           `}
         </Script>
+        <script defer src="https://analytics.tornoinforma.it/script.js" data-website-id="2236ee64-b45e-4dde-a255-5298319504cd"></script>
       </head>
       <body className="font-sans antialiased">
         {children}
